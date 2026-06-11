@@ -1,0 +1,113 @@
+{
+  "name": "Lake Forest Cultural District",
+  "shortName": "LFCD",
+  "location": "New Orleans East, Louisiana",
+  "motifs": ["Nature", "Water", "Culture"],
+
+  "status": {
+    "label": "Proposed — application in progress",
+    "detail": "An application has been submitted to the state. The board has been asked to resubmit and is preparing a sharper, corridor-focused resubmission. Nothing on this site should be read as a granted designation.",
+    "asOf": "June 2026",
+    "certified": false
+  },
+
+  "boundary": {
+    "description": "The Lake Forest Boulevard commercial corridor, from Crowder Boulevard to Bullard Avenue — roughly three walkable miles along New Orleans East's original main street.",
+    "from": "Crowder Boulevard",
+    "to": "Bullard Avenue",
+    "anchors": ["Joe W. Brown Memorial Park", "Louisiana Nature Center"]
+  },
+
+  "hero": {
+    "kicker": "New Orleans East · Crowder Blvd → Bullard Ave",
+    "title": "Three miles of main street, ready for its second act.",
+    "lede": "The Lake Forest Cultural District is a proposed state designation that would make the older commercial buildings along Lake Forest Boulevard eligible for Louisiana's Commercial Historic Tax Credit — putting real capital behind owners who restore the corridor, and protecting the cultural identity that was always here.",
+    "welcome": "Open to everyone. Built for the people already here."
+  },
+
+  "story": [
+    {
+      "id": "welcome",
+      "kicker": "Chapter One — What this is",
+      "title": "A district for all people.",
+      "body": "A Louisiana Certified Cultural District is not a gate, a fence, or a brand for a select few. It is a designation that recognizes what a community already is — and unlocks a financial tool for the people who own, lease, and love its buildings. The Lake Forest Cultural District welcomes everyone: residents, business owners, families in the surrounding neighborhoods, and visitors from across the city and beyond."
+    },
+    {
+      "id": "history",
+      "kicker": "Chapter Two — Where it came from",
+      "title": "The East was master-planned as its own downtown.",
+      "body": "In the 1960s and 70s, New Orleans East was marketed as \"Orlandia — the newest New Orleans\": a quarter of the city laid out with its own commercial heart. Lake Forest Boulevard was built to be that heart — a main-street, downtown-style hub serving a growing community. Those buildings are still standing. And by the historic tax credit program's own measure, they are now crossing into historic age.",
+      "note": "The 50-year eligibility line is rolling, not fixed. Standing in 1970, a 1920 building had just become historic. Standing here today, the corridor built in the 1970s is crossing that exact same line."
+    },
+    {
+      "id": "tool",
+      "kicker": "Chapter Three — The tool",
+      "title": "A tax credit, not a handout.",
+      "body": "Louisiana's State Commercial Historic Tax Credit returns 25% of qualified rehabilitation expenses (35% in rural areas) to owners — or long-term lessees responsible for improvements — who restore income-producing historic buildings. The credit is transferable, carries forward five years, sits under an $85M annual program cap, and sunsets December 31, 2028. The Cultural District designation is the eligibility gateway for corridor buildings that are not on the National Register and not in a Downtown Development District."
+    },
+    {
+      "id": "value",
+      "kicker": "Chapter Four — What's worth protecting",
+      "title": "Culture that's already here.",
+      "body": "The corridor is anchored by Joe W. Brown Memorial Park and the Louisiana Nature Center — green space, water, and community institutions that most commercial strips can only envy. The goal of the district is not to import a culture. It is to restore, protect, and expand the one the community already built."
+    },
+    {
+      "id": "future",
+      "kicker": "Chapter Five — Where this goes",
+      "title": "Small, visible steps. Then momentum.",
+      "body": "Trust is built by working together on things people can see. The plan is deliberately focused: one corridor, one message, the buildings that already qualify. Rehabilitate existing properties — no new construction proposed, no residential component, and no request for city funding. Bring developers to the table with a concrete offer, and let finished storefronts make the next argument."
+    }
+  ],
+
+  "facts": {
+    "act": "Louisiana Certified Cultural Districts were created by Act 298 of 2007.",
+    "gateway": "The Cultural District designation is the eligibility gateway for older commercial buildings on the Lake Forest corridor to access the Louisiana State Commercial Historic Tax Credit — the path for buildings not on the National Register and not in a Downtown Development District.",
+    "creditSummary": "25% of qualified rehabilitation expenses (35% rural), transferable, five-year carryforward, $85M annual program cap, sunsets December 31, 2028.",
+    "rolling50": "Historic-age eligibility runs on a rolling 50-year window, not a fixed date. The common disqualifier is loss of historic integrity through remodeling — not age.",
+    "artExemptionEliminated": "The original-art local sales-tax exemption was eliminated effective January 1, 2025 (Act 11). It is not a current benefit and is not presented as one anywhere on this site."
+  },
+
+  "isIsNot": {
+    "is": [
+      "An eligibility gateway to the State Commercial Historic Tax Credit for corridor buildings",
+      "A benefit that flows to property owners and qualifying long-term lessees who invest in their own buildings",
+      "A place-based revitalization tool created by Act 298 of 2007",
+      "A designation that recognizes and protects the corridor's existing cultural identity",
+      "Open and accessible to all people"
+    ],
+    "isNot": [
+      "Not a grant — no money is handed to any group, board, or person",
+      "Not a fund anyone can apply to",
+      "Not a festival budget",
+      "Not an art sales-tax exemption — that benefit was eliminated January 1, 2025 (Act 11)",
+      "Not a claim that any owner has committed to any project"
+    ]
+  },
+
+  "workedExample": {
+    "title": "What the numbers look like on a real project",
+    "note": "Illustrative and rounded for planning purposes. The New Markets benefit is shown at an illustrative 20% midpoint and depends on securing an allocation. Not tax or legal advice.",
+    "rows": [
+      { "label": "Total qualified rehabilitation work (owner funds all of it)", "amount": 1783110, "sign": "" },
+      { "label": "New Markets Tax Credit — outside investment, helps up front (~20%, illustrative)", "amount": 356622, "sign": "-" },
+      { "label": "Out-of-pocket project cost to the owner", "amount": 1426488, "sign": "=" },
+      { "label": "State Commercial Tax Credit — 25% of qualified expenses, recovered after the work", "amount": 445778, "sign": "-" },
+      { "label": "Estimated net project cost after both credits", "amount": 980710, "sign": "=" }
+    ],
+    "transferNote": "If the owner has no Louisiana tax bill to apply the credit against, it is fully transferable — it can be sold for cash, roughly $401,200 at 90¢ on the dollar."
+  },
+
+  "eligibility": [
+    { "requirement": "Age", "meaning": "At least 50 years old — a rolling line buildings keep crossing every year." },
+    { "requirement": "Location", "meaning": "Inside the certified Cultural District. This is the qualifying door for Lake Forest." },
+    { "requirement": "Historic character", "meaning": "Still recognizable as historic — not stripped or remodeled beyond recognition." },
+    { "requirement": "Use", "meaning": "Income-producing: commercial space, or residential rental." },
+    { "requirement": "Investment", "meaning": "Qualified rehabilitation expenses exceeding $10,000." },
+    { "requirement": "Standards", "meaning": "Work follows the Secretary of the Interior's Standards for Rehabilitation." }
+  ],
+
+  "footer": {
+    "line": "A community-led effort to restore the Lake Forest corridor through Louisiana's Cultural District program.",
+    "disclaimer": "This is a concept site for stakeholder review. Figures are drawn from program documents and parish assessor data and are subject to confirmation. Nothing here is tax or legal advice, and nothing implies a commitment by any property owner."
+  }
+}

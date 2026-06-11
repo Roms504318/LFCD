@@ -1,0 +1,195 @@
+{
+  "disclaimer": "Years shown represent when each building turns 50 years old, based on New Orleans Property Assessor data, to be confirmed. This information is for reference regarding building age only. It does not imply that any building owner intends to make changes to their building at this time.",
+  "source": "Orleans Parish Assessor's Office, data upload June 2026",
+
+  "anchors": [
+    {
+      "id": "joe-brown-park",
+      "name": "Joe W. Brown Memorial Park",
+      "type": "anchor",
+      "summary": "The district's green heart — one of the largest parks in New Orleans, sitting directly on the corridor.",
+      "history": null,
+      "yearBuilt": null,
+      "owner": "City of New Orleans",
+      "historicStatus": "District anchor",
+      "significance": "Anchors the eastern-central stretch of the corridor with recreation, water, and gathering space — the \"Nature\" and \"Water\" in the district's identity.",
+      "photos": []
+    },
+    {
+      "id": "nature-center",
+      "name": "Louisiana Nature Center",
+      "type": "anchor",
+      "summary": "An environmental education center inside the park footprint — rebuilt after Katrina and central to the district's nature story.",
+      "history": null,
+      "yearBuilt": null,
+      "owner": null,
+      "historicStatus": "District anchor",
+      "significance": "Connects the district to environmental education and the lakefront ecology of New Orleans East.",
+      "photos": []
+    }
+  ],
+
+  "properties": [
+    {
+      "id": "9954-lake-forest",
+      "name": "9954 Lake Forest Blvd",
+      "type": "property",
+      "parcelId": "9954-LAKEFORESTBL",
+      "address": "9954 Lake Forest Blvd",
+      "turns50": 2026,
+      "yearBuilt": "c. 1976",
+      "owner": "Lodie Enterprises Inc.",
+      "buildingSqFt": 22572,
+      "landSqFt": 48166,
+      "assessedTotalValue": 1280400,
+      "construction": "One-story concrete & steel",
+      "historicStatus": "Crosses the 50-year line in 2026 — historic-age this year (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": []
+    },
+    {
+      "id": "5555-bullard",
+      "name": "5555 Bullard Ave",
+      "type": "property",
+      "parcelId": "5555-BULLARDAV",
+      "address": "5555 Bullard Ave",
+      "turns50": 2028,
+      "yearBuilt": "c. 1978",
+      "owner": "5555 Bullard LLC",
+      "buildingSqFt": 38314,
+      "landSqFt": 131464,
+      "assessedTotalValue": 1850000,
+      "construction": "3.018 acres at the corridor's eastern gateway",
+      "historicStatus": "Reaches historic age in 2028 — inside the program's window before sunset (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": []
+    },
+    {
+      "id": "9900-lake-forest",
+      "name": "9900 Lake Forest Blvd",
+      "type": "property",
+      "parcelId": "9900-LAKEFORESTBL",
+      "address": "9900 Lake Forest Blvd",
+      "turns50": 2028,
+      "yearBuilt": "c. 1978",
+      "owner": "Saturn Management Inc.",
+      "buildingSqFt": 29700,
+      "landSqFt": 78207,
+      "assessedTotalValue": 972000,
+      "construction": null,
+      "historicStatus": "Reaches historic age in 2028 (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": []
+    },
+    {
+      "id": "9830-lake-forest",
+      "name": "9830 Lake Forest Blvd · Town Square",
+      "type": "property",
+      "parcelId": "9830-LAKEFORESTBL",
+      "address": "9830 Lake Forest Blvd",
+      "turns50": 2030,
+      "yearBuilt": "c. 1980",
+      "owner": "Tracy's Investment LLC",
+      "buildingSqFt": 30260,
+      "landSqFt": 55415,
+      "assessedTotalValue": 1159700,
+      "construction": "Platted as \"Town Square\" — a name that says what the corridor was built to be",
+      "historicStatus": "Reaches historic age in 2030 (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": []
+    },
+    {
+      "id": "5661-bullard",
+      "name": "5661 Bullard Ave",
+      "type": "property",
+      "parcelId": "5661-BULLARDAV",
+      "address": "5661 Bullard Ave",
+      "turns50": 2031,
+      "yearBuilt": "c. 1981",
+      "owner": "Andrew Partnership",
+      "buildingSqFt": 15699,
+      "landSqFt": 59912,
+      "assessedTotalValue": 1271600,
+      "construction": "Corner of Lake Forest Blvd & Bullard Ave",
+      "historicStatus": "Reaches historic age in 2031 (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": []
+    },
+    {
+      "id": "9660-lake-forest",
+      "name": "9660 Lake Forest Blvd",
+      "type": "property",
+      "parcelId": "9660-LAKEFORESTBL",
+      "address": "9660 Lake Forest Blvd",
+      "turns50": 2033,
+      "yearBuilt": "c. 1983",
+      "owner": "Watkins Healthcare Group, LLC",
+      "buildingSqFt": 73107,
+      "landSqFt": 124873,
+      "assessedTotalValue": 959500,
+      "construction": "The corridor's largest documented building footprint",
+      "historicStatus": "Reaches historic age in 2033 (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": ["assets/img/viz-9660-before.jpg"]
+    },
+    {
+      "id": "9820-lake-forest",
+      "name": "9820 Lake Forest Blvd",
+      "type": "property",
+      "parcelId": "9820-LAKEFORESTBL",
+      "address": "9820 Lake Forest Blvd",
+      "turns50": 2033,
+      "yearBuilt": "c. 1983",
+      "owner": "BJS LLC",
+      "buildingSqFt": 32783,
+      "landSqFt": 109182,
+      "assessedTotalValue": null,
+      "construction": "Lake Forest Blvd through Citrus Canal",
+      "historicStatus": "Reaches historic age in 2033 (to be confirmed)",
+      "history": null,
+      "significance": null,
+      "photos": []
+    }
+  ],
+
+  "visualizations": {
+    "disclaimer": "These images do not imply any commitment or decision by the building owners, nor do they reflect what the State would approve for tax-credit qualification. They illustrate stages of progress observed in other areas that have used programs like the Cultural District to raise awareness of the need to preserve and rehabilitate New Orleans culture.",
+    "sets": [
+      {
+        "id": "viz-8370",
+        "title": "A corridor commercial building",
+        "subtitle": "Three stages: as found · stabilized · restored",
+        "stages": [
+          { "label": "As found", "image": "assets/img/viz-8370-1.jpg" },
+          { "label": "Stabilized", "image": "assets/img/viz-8370-2.jpg" },
+          { "label": "Restored", "image": "assets/img/viz-8370-3.jpg" }
+        ]
+      },
+      {
+        "id": "viz-9660",
+        "title": "9660 Lake Forest Blvd",
+        "subtitle": "From for-sale and overgrown to a working address",
+        "stages": [
+          { "label": "As found", "image": "assets/img/viz-9660-before.jpg" },
+          { "label": "Restored", "image": "assets/img/viz-9660-after.jpg" }
+        ]
+      },
+      {
+        "id": "viz-mall",
+        "title": "A corridor retail strip",
+        "subtitle": "Repair, repaint, reopen — storefronts back in service",
+        "stages": [
+          { "label": "As found", "image": "assets/img/viz-mall-1.jpg" },
+          { "label": "Repaired", "image": "assets/img/viz-mall-2.jpg" },
+          { "label": "Active", "image": "assets/img/viz-mall-3.jpg" }
+        ]
+      }
+    ]
+  }
+}

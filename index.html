@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lake Forest Cultural District — New Orleans East</title>
+  <meta name="description" content="A proposed Louisiana Cultural District along the Lake Forest Boulevard corridor in New Orleans East — the eligibility gateway to the State Commercial Historic Tax Credit for the corridor's historic-age buildings.">
+
+  <!-- Type: Fraunces (display) + Public Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <!-- Motion toolchain (CDN). The site renders fully without it. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2315301E'/><path d='M30 58 q10 -8 20 0 t20 0' stroke='%23C29A3B' stroke-width='5' fill='none' stroke-linecap='round'/><circle cx='50' cy='36' r='9' fill='%239FBC97'/></svg>">
+</head>
+
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= Header ================= -->
+  <header class="site-header">
+    <div class="container container--wide site-header__inner">
+      <a class="brand" href="index.html">
+        <!-- District mark (hand-authored SVG, animated on load) -->
+        <svg class="brand__mark" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="55" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+          <g class="mark-waves" opacity="0.55">
+            <circle cx="60" cy="60" r="47" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4 7"/>
+          </g>
+          <!-- Nature: canopy -->
+          <circle cx="60" cy="42" r="15" fill="var(--sage)"/>
+          <circle cx="46" cy="49" r="10" fill="var(--moss)"/>
+          <circle cx="74" cy="49" r="10" fill="var(--moss)"/>
+          <rect x="57.5" y="52" width="5" height="14" rx="2" fill="var(--gold-deep)"/>
+          <!-- Water: waves -->
+          <path d="M30 78 q7.5 -7 15 0 t15 0 t15 0 t15 0" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M36 88 q6 -5.5 12 0 t12 0 t12 0 t12 0" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+          <!-- Culture: star -->
+          <path d="M60 96 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6 z" fill="var(--cream)" transform="translate(0,-8)"/>
+        </svg>
+        <span class="brand__text">
+          <span>Lake Forest Cultural District</span>
+          <span class="brand__sub">Nature · Water · Culture</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#story">Story</a>
+        <a href="map.html">Map</a>
+        <a href="#assets">Buildings</a>
+        <a href="events.html">Events</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-label="Introduction">
+      <!-- Oversized district mark, parallax-drifting -->
+      <svg class="hero__mark" viewBox="0 0 120 120" aria-hidden="true" data-parallax="0.08">
+        <circle cx="60" cy="60" r="55" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.8"/>
+        <g class="mark-waves">
+          <circle cx="60" cy="60" r="47" fill="none" stroke="var(--gold)" stroke-width="0.5" stroke-dasharray="3 6" opacity="0.7"/>
+        </g>
+        <circle cx="60" cy="42" r="15" fill="var(--sage)" opacity="0.9"/>
+        <circle cx="46" cy="49" r="10" fill="var(--moss)"/>
+        <circle cx="74" cy="49" r="10" fill="var(--moss)"/>
+        <rect x="57.5" y="52" width="5" height="14" rx="2" fill="var(--gold-deep)"/>
+        <path d="M30 78 q7.5 -7 15 0 t15 0 t15 0 t15 0" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M36 88 q6 -5.5 12 0 t12 0 t12 0 t12 0" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        <path d="M60 88 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6 z" fill="var(--cream)"/>
+      </svg>
+
+      <div class="container container--wide">
+        <div class="hero__inner">
+          <span class="status-chip" data-status-chip>Proposed — application in progress</span>
+          <p class="hero__kicker" id="hero-kicker"></p>
+          <h1 class="hero__title" id="hero-title"></h1>
+          <p class="hero__lede" id="hero-lede"></p>
+          <p class="hero__welcome" id="hero-welcome"></p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="map.html">See the corridor map <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="events.html">Events</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The corridor, drawn as a line: Crowder → Bullard -->
+      <svg class="hero__corridor" viewBox="0 0 1200 90" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <path d="M60 55 C 300 35, 520 70, 720 50 S 1050 40, 1140 52"
+              fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="60" cy="55" r="7" fill="var(--gold)"/>
+        <circle cx="1140" cy="52" r="7" fill="var(--gold)"/>
+        <circle cx="660" cy="53" r="5" fill="var(--sage)"/>
+        <text x="60" y="80" text-anchor="start">Crowder Blvd</text>
+        <text x="660" y="32" text-anchor="middle">Joe W. Brown Park</text>
+        <text x="1140" y="78" text-anchor="end">Bullard Ave</text>
+      </svg>
+
+      <a class="scroll-cue" href="#story">Scroll</a>
+    </section>
+
+    <!-- ================= Chapter 1: A district for all ================= -->
+    <section class="band" id="story" data-chapter="welcome" aria-label="Chapter one">
+      <div class="container chapter">
+        <div>
+          <div class="section-head" data-reveal>
+            <p class="kicker"></p>
+            <h2></h2>
+          </div>
+          <p class="chapter__body lede" data-reveal data-reveal-delay="0.1"></p>
+        </div>
+        <div class="chapter__media" data-reveal="right">
+          <!-- Hand-authored community illustration: neighbors of the district,
+               in different shades of brown, gathered under one gold arc -->
+          <svg viewBox="0 0 360 240" role="img" aria-label="Illustration of a community of people in different shades of brown gathered together beneath a golden arch, with greenery on either side" style="max-width:26rem;margin-inline:auto;display:block" data-parallax="0.05">
+            <path d="M30 215 A150 150 0 0 1 330 215" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 10"/>
+            <path d="M55 215 A125 125 0 0 1 305 215" fill="none" stroke="var(--gold)" stroke-width="2" opacity="0.55"/>
+            <!-- greenery -->
+            <circle cx="38" cy="196" r="17" fill="var(--sage)"/>
+            <circle cx="26" cy="208" r="11" fill="var(--moss)"/>
+            <circle cx="322" cy="196" r="17" fill="var(--sage)"/>
+            <circle cx="334" cy="208" r="11" fill="var(--moss)"/>
+            <!-- five neighbors, five shades of brown -->
+            <g>
+              <circle cx="105" cy="148" r="15" fill="#8D5524"/>
+              <path d="M83 215 q0 -42 22 -42 q22 0 22 42 z" fill="#8D5524"/>
+            </g>
+            <g>
+              <circle cx="143" cy="132" r="17" fill="#5C3317"/>
+              <path d="M118 215 q0 -50 25 -50 q25 0 25 50 z" fill="#5C3317"/>
+            </g>
+            <g>
+              <circle cx="183" cy="122" r="19" fill="#A0682F"/>
+              <path d="M155 215 q0 -56 28 -56 q28 0 28 56 z" fill="#A0682F"/>
+            </g>
+            <g>
+              <circle cx="223" cy="134" r="16" fill="#C68642"/>
+              <path d="M199 215 q0 -48 24 -48 q24 0 24 48 z" fill="#C68642"/>
+            </g>
+            <g>
+              <circle cx="259" cy="150" r="14" fill="#6B4423"/>
+              <path d="M238 215 q0 -40 21 -40 q21 0 21 40 z" fill="#6B4423"/>
+            </g>
+            <!-- shared ground -->
+            <rect x="30" y="214" width="300" height="3.5" rx="1.75" fill="var(--canopy)"/>
+            <!-- culture star above -->
+            <path d="M180 54 l3.4 7 7 3.4 -7 3.4 -3.4 7 -3.4 -7 -7 -3.4 7 -3.4 z" fill="var(--gold)"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Chapter 2: History ================= -->
+    <section class="band band--sage" data-chapter="history" aria-label="Chapter two">
+      <div class="container chapter">
+        <div>
+          <div class="section-head" data-reveal>
+            <p class="kicker"></p>
+            <h2></h2>
+          </div>
+          <p class="chapter__body" data-reveal></p>
+
+          <!-- The rolling 50-year line, data-animated -->
+          <div class="timeline50" data-reveal>
+            <div class="timeline50__track">
+              <div class="timeline50__dot" style="left:6%"><span class="above">1920s buildings</span><span class="below">historic by 1970</span></div>
+              <div class="timeline50__dot" style="left:52%"><span class="above">1976 corridor</span><span class="below">historic by 2026</span></div>
+              <div class="timeline50__dot timeline50__dot--now" style="left:88%"><span class="above">Today</span><span class="below"><strong data-count="2026" data-count-format="plain" data-count-done="2026">2026</strong></span></div>
+            </div>
+            <p class="chapter__note"></p>
+          </div>
+        </div>
+        <div class="chapter__media" data-reveal="right">
+          <figure class="artifact" data-parallax="0.06">
+            <img src="assets/img/orlandia-ad.jpg" alt="Vintage newspaper advertisement: 'Look East to Orlandia, the Newest New Orleans' — 1970s marketing for the master-planned New Orleans East" loading="lazy">
+            <figcaption>"Look East to Orlandia — the Newest New Orleans." Original marketing for the master-planned East.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Chapter 3: The tool ================= -->
+    <section class="band band--dark" data-chapter="tool" aria-label="Chapter three">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker"></p>
+          <h2></h2>
+        </div>
+        <p class="chapter__body lede" data-reveal></p>
+
+        <div class="stat-row" id="program-stats" style="margin-top:var(--space-l)" data-reveal-stagger>
+          <!-- Rendered from data/metrics.json -->
+        </div>
+
+        <p style="margin-top:var(--space-l);max-width:none" data-reveal>
+          <span class="badge badge--sample" style="margin-right:0.6rem">Important</span>
+          <span id="status-detail-inline" data-status-detail style="color:var(--cream-on-dark-soft);font-size:var(--step--1)"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Honest numbers ================= -->
+    <section class="band band--sage" aria-label="Where we are today">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Honest numbers</p>
+          <h2>Where we are today:
+            <span class="zero-figure" style="display:block" data-count="0" data-count-format="currency-cents">$0.00</span>
+          </h2>
+        </div>
+        <p class="lede" id="zeros-explainer" data-reveal></p>
+
+        <div class="bars" id="comparison-bars" data-reveal>
+          <!-- Rendered from data/metrics.json -->
+        </div>
+        <p style="margin-top:var(--space-m);font-size:var(--step--1);color:var(--ink-soft)" data-reveal>
+          Historic Tax Credit program investment, 2017–24. Zeros shown are real zeros — they are the case for the district, not a decoration.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Worked example ================= -->
+    <section class="band" aria-label="Worked example">
+      <div class="container chapter chapter--flip">
+        <div>
+          <div class="section-head" data-reveal>
+            <p class="kicker">The math, on a real budget</p>
+            <h2 id="worked-title"></h2>
+          </div>
+          <p data-reveal id="worked-transfer" class="lede" style="font-size:var(--step-0)"></p>
+          <p data-reveal id="worked-note" style="font-size:0.8rem;color:var(--ink-soft);max-width:46ch"></p>
+        </div>
+        <div class="chapter__media" data-reveal="left">
+          <div class="receipt" id="worked-example-wrap">
+            <div id="worked-example"><!-- Rendered from data/district.json --></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Eligibility ================= -->
+    <section class="band band--tight" aria-label="Eligibility">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Who qualifies</p>
+          <h2>Six requirements. One door the district opens.</h2>
+        </div>
+        <div class="elig-grid" id="eligibility-grid" data-reveal-stagger>
+          <!-- Rendered from data/district.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Is / Is not ================= -->
+    <section class="band" aria-label="What the designation does and does not do">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Plain terms</p>
+          <h2>What the designation does — and doesn't.</h2>
+        </div>
+        <div class="isnot-grid">
+          <div class="isnot isnot--is" data-reveal>
+            <h3>It is</h3>
+            <ul id="is-list"></ul>
+          </div>
+          <div class="isnot isnot--not" data-reveal data-reveal-delay="0.12">
+            <h3>It is not</h3>
+            <ul id="isnot-list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Chapter 4: Cultural value statement ================= -->
+    <section class="band band--canopy" data-chapter="value" aria-label="Chapter four">
+      <div class="container" style="text-align:center">
+        <p class="kicker" style="justify-content:center" data-reveal></p>
+        <h2 class="statement" data-reveal></h2>
+        <p class="chapter__body lede" style="margin:var(--space-l) auto 0" data-reveal></p>
+      </div>
+    </section>
+
+    <!-- ================= Map ================= -->
+    <section class="band" id="map" aria-label="District map">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">The footprint</p>
+          <h2>Smaller map. Sharper aim.</h2>
+          <p class="lede">Drag the slider: from the earlier broad, diffuse boundary to the focused corridor — <span data-endpoint-from>Crowder Boulevard</span> to <span data-endpoint-to>Bullard Avenue</span>, anchored by Joe W. Brown Memorial Park and the Louisiana Nature Center.</p>
+        </div>
+
+        <div class="compare" data-compare data-reveal>
+          <img id="cmp-focused" src="assets/img/map-corridor.jpg" alt="">
+          <div class="compare__top">
+            <img id="cmp-broad" src="assets/img/map-broad.jpg" alt="">
+          </div>
+          <div class="compare__handle"></div>
+          <span class="compare__tag compare__tag--left">Before — broad</span>
+          <span class="compare__tag compare__tag--right">Now — focused corridor</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare the earlier broad district map with the focused corridor map">
+        </div>
+
+        <div class="endpoint-strip" data-reveal>
+          <span data-endpoint-from>Crowder Blvd</span>
+          <span class="line" aria-hidden="true"></span>
+          <span>~3 walkable miles</span>
+          <span class="line" aria-hidden="true"></span>
+          <span data-endpoint-to>Bullard Ave</span>
+        </div>
+
+        <p style="margin-top:var(--space-m)" data-reveal>
+          <a class="btn btn--ghost" href="map.html">Open the full map view <span class="arrow">→</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Assets / properties ================= -->
+    <section class="band band--sage" id="assets" aria-label="Community assets and corridor buildings">
+      <div class="container container--wide">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Community assets &amp; corridor buildings</p>
+          <h2>The buildings crossing the historic line.</h2>
+          <p class="lede">Seven documented commercial parcels and two anchors. Each card opens a full record — history, ownership, status, and significance — built to grow as the asset assessment proceeds.</p>
+        </div>
+        <div class="card-grid" id="asset-grid" data-reveal-stagger>
+          <!-- Rendered from data/projects.json -->
+        </div>
+        <p id="assets-disclaimer" style="margin-top:var(--space-l);font-size:0.8rem;color:var(--ink-soft);max-width:none" data-reveal></p>
+      </div>
+    </section>
+
+    <!-- ================= Visualization ================= -->
+    <section class="band band--dark" aria-label="Rehabilitation visualizations">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">What rehabilitation looks like</p>
+          <h2>From boarded-up to back in business.</h2>
+        </div>
+        <div id="viz-sets">
+          <!-- Rendered from data/projects.json -->
+        </div>
+        <p class="viz-disclaimer" id="viz-disclaimer" data-reveal></p>
+      </div>
+    </section>
+
+    <!-- ================= Chapter 5: Future ================= -->
+    <section class="band" data-chapter="future" aria-label="Chapter five">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker"></p>
+          <h2></h2>
+        </div>
+        <p class="chapter__body lede" data-reveal></p>
+      </div>
+    </section>
+
+    <!-- ================= Events teaser ================= -->
+    <section class="band band--tight band--sage" aria-label="Events">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Gather</p>
+          <h2>Events on the corridor.</h2>
+        </div>
+        <div class="events-note" data-reveal>
+          <span class="badge badge--pending">Programming TBA</span>
+          <span id="events-note"></span>
+        </div>
+        <div class="events-grid" id="events-grid" data-reveal-stagger>
+          <!-- Rendered from data/events.json -->
+        </div>
+        <p style="margin-top:var(--space-l)" data-reveal>
+          <a class="btn btn--gold" href="events.html">All events — special &amp; recurring <span class="arrow">→</span></a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= Asset detail modal ================= -->
+  <div class="modal" id="asset-modal" role="dialog" aria-modal="true" aria-label="Asset detail">
+    <div class="modal__scrim"></div>
+    <div class="modal__panel">
+      <button class="modal__close" type="button" aria-label="Close detail">✕</button>
+      <div class="modal__content"></div>
+    </div>
+  </div>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:var(--space-s)">
+          <svg class="brand__mark" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="55" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+            <circle cx="60" cy="42" r="15" fill="var(--sage)"/>
+            <circle cx="46" cy="49" r="10" fill="var(--moss)"/>
+            <circle cx="74" cy="49" r="10" fill="var(--moss)"/>
+            <rect x="57.5" y="52" width="5" height="14" rx="2" fill="var(--gold-deep)"/>
+            <path d="M30 78 q7.5 -7 15 0 t15 0 t15 0 t15 0" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M60 88 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6 z" fill="var(--cream)"/>
+          </svg>
+          <span class="brand__text">
+            <span>Lake Forest Cultural District</span>
+            <span class="brand__sub">Nature · Water · Culture</span>
+          </span>
+        </a>
+        <p id="footer-line"></p>
+        <p><span class="status-chip" data-status-chip></span></p>
+      </div>
+      <nav aria-label="Footer">
+        <h4 style="color:var(--cream)">Explore</h4>
+        <p><a href="index.html#story">The story</a><br>
+        <a href="map.html">District map</a><br>
+        <a href="index.html#assets">Buildings &amp; assets</a><br>
+        <a href="events.html">Events</a></p>
+      </nav>
+      <div id="footer-facts">
+        <!-- Act 298 + art-exemption elimination facts, from data -->
+      </div>
+    </div>
+    <div class="container">
+      <p class="site-footer__disclaimer" id="footer-disclaimer"></p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="boot-notice">This concept site renders its content from editable data files and needs JavaScript enabled.</p>
+  </noscript>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

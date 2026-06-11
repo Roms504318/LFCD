@@ -1,0 +1,314 @@
+/* ============================================================
+   LFCD — Page sections
+   Hero, story chapters, map, archive artifacts, page heroes.
+   Selector specificity is kept low and flat; section rules
+   never restyle component internals.
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  background:
+    radial-gradient(120% 90% at 80% 10%, rgba(35, 77, 51, 0.85), transparent 60%),
+    radial-gradient(100% 80% at 10% 90%, rgba(76, 122, 87, 0.35), transparent 55%),
+    var(--forest);
+  color: var(--cream-on-dark);
+  overflow: clip;
+  padding-block: calc(var(--space-2xl) + 3rem) var(--space-2xl);
+}
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(244,239,224,0.05) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+}
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--space-l);
+  max-width: 56rem;
+}
+.hero__title {
+  font-size: var(--step-6);
+  font-weight: 600;
+  color: var(--cream);
+  margin: 0;
+}
+.hero__title em {
+  font-style: italic;
+  font-weight: 420;
+  color: var(--gold);
+}
+.hero__kicker {
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.hero__lede {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--cream-on-dark-soft);
+  max-width: 46ch;
+}
+.hero__welcome {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-1);
+  color: var(--gold);
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-s); }
+.hero__mark {
+  position: absolute;
+  right: clamp(-6rem, -2vw, 0rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(280px, 38vw, 560px);
+  opacity: 0.9;
+  z-index: 1;
+}
+@media (max-width: 900px) {
+  .hero__mark { opacity: 0.25; right: -20%; width: 70vw; }
+}
+
+/* Corridor line — drawn by scroll/load animation */
+.hero__corridor {
+  position: absolute;
+  left: 0; right: 0; bottom: clamp(2rem, 6vh, 4rem);
+  z-index: 2;
+  width: 100%;
+}
+.hero__corridor text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--sage);
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.2rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--sage);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+.scroll-cue::after {
+  content: "";
+  width: 1.5px;
+  height: 2.2rem;
+  background: linear-gradient(var(--gold), transparent);
+  animation: cue-drop 1.8s ease-in-out infinite;
+}
+@keyframes cue-drop {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(0.5rem); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue::after { animation: none; }
+}
+
+/* ---------- Story chapters ---------- */
+.chapter {
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+  padding-block: var(--space-xl);
+}
+@media (min-width: 900px) {
+  .chapter { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-2xl); }
+  .chapter--flip > .chapter__media { order: -1; }
+}
+.chapter__media { position: relative; }
+.chapter h2 { font-size: var(--step-4); }
+
+/* The Orlandia artifact — pinned like a document on a board */
+.artifact {
+  position: relative;
+  max-width: 21rem;
+  margin-inline: auto;
+  transform: rotate(-2.5deg);
+  border-radius: 4px;
+  box-shadow: var(--shadow-lift);
+  background: var(--cream);
+  padding: 10px;
+}
+.artifact img { border-radius: 2px; }
+.artifact::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%) rotate(3deg);
+  width: 90px; height: 26px;
+  background: rgba(194, 154, 59, 0.45);
+  border-radius: 2px;
+}
+.artifact figcaption {
+  padding: 0.7rem 0.3rem 0.3rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Rolling 50-year line */
+.timeline50 {
+  margin-top: var(--space-l);
+  padding: var(--space-m);
+  background: var(--pale-sage);
+  border-radius: var(--radius-l);
+}
+.timeline50__track {
+  position: relative;
+  height: 4px;
+  background: var(--sage);
+  border-radius: 2px;
+  margin: 2.6rem 0.5rem 2.4rem;
+}
+.timeline50__dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--canopy);
+}
+.timeline50__dot--now { background: var(--gold); width: 18px; height: 18px; box-shadow: 0 0 0 5px rgba(194,154,59,.25); }
+.timeline50__dot span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.timeline50__dot span.above { bottom: 1.3rem; }
+.timeline50__dot span.below { top: 1.4rem; }
+.timeline50 p { font-size: var(--step--1); color: var(--ink-soft); max-width: none; }
+
+/* ---------- Big quote / welcome band ---------- */
+.statement {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 480;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+  margin-inline: auto;
+  text-align: center;
+  text-wrap: balance;
+}
+.statement em { font-style: italic; color: var(--gold-deep); }
+.band--dark .statement em, .band--canopy .statement em { color: var(--gold); }
+
+/* ---------- Map section ---------- */
+.map-figure {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+}
+.map-figure img { width: 100%; }
+.map-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: var(--space-s);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+.map-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; align-items: center; }
+.map-legend span { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; }
+.map-legend i {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--moss);
+}
+.map-legend i.gold { background: var(--gold); }
+.map-legend i.outline { background: transparent; border: 2px solid var(--canopy); border-radius: 3px; }
+
+/* Corridor endpoints strip under map */
+.endpoint-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  margin-top: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  background: var(--forest);
+  color: var(--cream);
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.endpoint-strip::before { display: none; }
+.endpoint-strip .line {
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 18px);
+}
+
+/* ---------- Visualization section ---------- */
+.viz-disclaimer {
+  margin-top: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  border-left: 4px solid var(--gold);
+  background: rgba(244, 239, 224, 0.07);
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--cream-on-dark-soft);
+  max-width: 60rem;
+}
+.viz-set + .viz-set { margin-top: var(--space-xl); }
+.viz-set h3 { margin-bottom: 0.2rem; }
+.viz-set .viz-sub { color: var(--cream-on-dark-soft); font-size: var(--step--1); margin-bottom: var(--space-s); }
+
+/* ---------- Page hero (subpages) ---------- */
+.page-hero {
+  background:
+    radial-gradient(100% 120% at 85% 0%, rgba(35, 77, 51, 0.9), transparent 60%),
+    var(--forest);
+  color: var(--cream-on-dark);
+  padding-block: calc(var(--space-2xl) + 2rem) var(--space-xl);
+}
+.page-hero h1 { color: var(--cream); font-size: var(--step-5); }
+.page-hero .lede { color: var(--cream-on-dark-soft); }
+
+/* ---------- Reveal defaults ----------
+   Content is fully visible without JS; motion library only
+   *adds* transforms at runtime. Nothing is hidden by CSS. */
+[data-reveal] { will-change: transform, opacity; }
+
+/* ---------- Events page ---------- */
+.events-note {
+  padding: var(--space-s) var(--space-m);
+  background: var(--pale-sage);
+  border-radius: var(--radius-m);
+  font-size: var(--step--1);
+  margin-bottom: var(--space-l);
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.events-grid { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }

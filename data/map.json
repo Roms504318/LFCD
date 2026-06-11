@@ -1,0 +1,37 @@
+{
+  "comment": "Map data seam. The static corridor map image is the current presentation layer; the geometry below is placeholder structure ready to receive real GeoJSON and a tile provider (Leaflet / MapLibre) later. TODO: replace placeholder coordinates with surveyed boundary geometry.",
+
+  "staticMaps": {
+    "focused": {
+      "image": "assets/img/map-corridor.jpg",
+      "alt": "Map of the focused Lake Forest Cultural District corridor along Lake Forest Boulevard from Crowder Boulevard to Bullard Avenue, with numbered cultural asset markers and Joe W. Brown Park",
+      "caption": "The focused corridor: Crowder → Bullard, ~3 walkable miles along the old main street."
+    },
+    "broad": {
+      "image": "assets/img/map-broad.jpg",
+      "alt": "Earlier, broader proposed district map spreading across large residential areas of New Orleans East",
+      "caption": "Before: a broad, diffuse map spread across residential areas that don't directly benefit. Hard to message. Hard to deliver."
+    }
+  },
+
+  "corridor": {
+    "from": { "name": "Crowder Boulevard", "placeholder": true, "lngLat": null },
+    "to": { "name": "Bullard Avenue", "placeholder": true, "lngLat": null },
+    "alongStreet": "Lake Forest Boulevard",
+    "approxMiles": 3
+  },
+
+  "anchorMarkers": [
+    { "id": "joe-brown-park", "name": "Joe W. Brown Memorial Park", "placeholder": true, "lngLat": null },
+    { "id": "nature-center", "name": "Louisiana Nature Center", "placeholder": true, "lngLat": null }
+  ],
+
+  "boundary": {
+    "placeholder": true,
+    "geojson": {
+      "type": "Feature",
+      "properties": { "name": "LFCD proposed boundary — PLACEHOLDER, awaiting surveyed geometry" },
+      "geometry": null
+    }
+  }
+}

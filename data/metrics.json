@@ -1,0 +1,36 @@
+{
+  "comment": "Honest counts. Zeros are real zeros — they are the argument, not an embarrassment. Source: Historic Tax Credit program data 2017–24 as compiled in the LFCD HTC plan, June 2026.",
+
+  "honestZeros": {
+    "headline": "Where we are today: $0.00",
+    "explainer": "Of the $3.6 billion the Historic Tax Credit program has invested in New Orleans, the state recorded no projects in House District 100 — the district covering New Orleans East. The eastern lakefront has received virtually none of that investment. That is exactly what the Cultural District designation is built to change.",
+    "items": [
+      { "label": "HTC investment in House District 100 (New Orleans East), 2017–24", "value": 0, "format": "currency" },
+      { "label": "HTC projects recorded in House District 100", "value": 0, "format": "number" }
+    ]
+  },
+
+  "comparison": [
+    { "label": "HTC investment across New Orleans (Congressional Dist. 2), 2017–24", "value": 3590505357, "format": "currency", "sub": "882 projects" },
+    { "label": "Senate District 3 (Gentilly / NOE / Lower 9 / St. Bernard)", "value": 328718414, "format": "currency", "sub": "154 projects" },
+    { "label": "Adjacent House District 99", "value": 177648002, "format": "currency", "sub": "70 projects" },
+    { "label": "House District 100 — New Orleans East", "value": 0, "format": "currency", "sub": "0 projects" }
+  ],
+
+  "program": {
+    "creditRatePct": 25,
+    "ruralRatePct": 35,
+    "carryforwardYears": 5,
+    "annualCap": 85000000,
+    "sunset": "2028-12-31",
+    "minimumInvestment": 10000,
+    "statewideProjectsCompleted": "1,700+"
+  },
+
+  "district": {
+    "corridorMiles": 3,
+    "propertiesDocumented": 7,
+    "anchors": 2,
+    "firstBuildingTurns50": 2026
+  }
+}

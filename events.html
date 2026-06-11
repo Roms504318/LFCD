@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Lake Forest Cultural District</title>
+  <meta name="description" content="Special and recurring events in the proposed Lake Forest Cultural District, New Orleans East.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2315301E'/><path d='M30 58 q10 -8 20 0 t20 0' stroke='%23C29A3B' stroke-width='5' fill='none' stroke-linecap='round'/><circle cx='50' cy='36' r='9' fill='%239FBC97'/></svg>">
+</head>
+
+<body data-page="events">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container container--wide site-header__inner">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="55" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+          <circle cx="60" cy="42" r="15" fill="var(--sage)"/>
+          <circle cx="46" cy="49" r="10" fill="var(--moss)"/>
+          <circle cx="74" cy="49" r="10" fill="var(--moss)"/>
+          <rect x="57.5" y="52" width="5" height="14" rx="2" fill="var(--gold-deep)"/>
+          <path d="M30 78 q7.5 -7 15 0 t15 0 t15 0 t15 0" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M60 88 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6 z" fill="var(--cream)"/>
+        </svg>
+        <span class="brand__text">
+          <span>Lake Forest Cultural District</span>
+          <span class="brand__sub">Nature · Water · Culture</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#story">Story</a>
+        <a href="map.html">Map</a>
+        <a href="index.html#assets">Buildings</a>
+        <a href="events.html" aria-current="page">Events</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-label="Events">
+      <div class="container">
+        <span class="status-chip" data-status-chip></span>
+        <h1 style="margin-top:var(--space-s)">Events on the corridor.</h1>
+        <p class="lede">Special one-time gatherings and the recurring rhythms of the district — from board working sessions to days in the park.</p>
+      </div>
+    </section>
+
+    <section class="band" aria-label="Event listings">
+      <div class="container">
+        <div class="events-note" data-reveal>
+          <span class="badge badge--pending">Programming TBA</span>
+          <span id="events-note"></span>
+        </div>
+
+        <div class="filter-tabs" role="group" aria-label="Filter events">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="special" aria-pressed="false">Special events</button>
+          <button type="button" data-filter="recurring" aria-pressed="false">Recurring</button>
+        </div>
+
+        <div class="events-grid" id="events-grid" data-reveal-stagger>
+          <!-- Rendered from data/events.json -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <p id="footer-line"></p>
+        <p><span class="status-chip" data-status-chip></span></p>
+      </div>
+      <nav aria-label="Footer">
+        <h4 style="color:var(--cream)">Explore</h4>
+        <p><a href="index.html#story">The story</a><br>
+        <a href="map.html">District map</a><br>
+        <a href="index.html#assets">Buildings &amp; assets</a><br>
+        <a href="events.html">Events</a></p>
+      </nav>
+      <div id="footer-facts"></div>
+    </div>
+    <div class="container">
+      <p class="site-footer__disclaimer" id="footer-disclaimer"></p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="boot-notice">This concept site renders its content from editable data files and needs JavaScript enabled.</p>
+  </noscript>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

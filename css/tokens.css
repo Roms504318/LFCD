@@ -1,0 +1,65 @@
+/* ============================================================
+   LFCD — Design tokens
+   Palette, type scale, spacing, motion. Every visual decision
+   on the site references these custom properties.
+   ============================================================ */
+
+:root {
+  /* ---- Palette (exact district values) ---- */
+  --cream: #F4EFE0;
+  --forest: #15301E;
+  --canopy: #234D33;
+  --moss: #4C7A57;
+  --sage: #9FBC97;
+  --pale-sage: #DDE7D3;
+  --gold: #C29A3B;
+  --gold-deep: #9C7B26;
+
+  /* Derived tints (palette mixes only — no foreign hues) */
+  --cream-warm: #EFE8D3;
+  --ink: var(--forest);
+  --ink-soft: #3A5444;
+  --line: rgba(21, 48, 30, 0.16);
+  --line-strong: rgba(21, 48, 30, 0.32);
+  --cream-on-dark: rgba(244, 239, 224, 0.92);
+  --cream-on-dark-soft: rgba(244, 239, 224, 0.66);
+
+  /* ---- Type ---- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+
+  /* Fluid type scale (minor-third → perfect-fourth across viewport) */
+  --step--1: clamp(0.82rem, 0.79rem + 0.15vw, 0.91rem);
+  --step-0:  clamp(1.00rem, 0.95rem + 0.25vw, 1.13rem);
+  --step-1:  clamp(1.25rem, 1.16rem + 0.45vw, 1.50rem);
+  --step-2:  clamp(1.56rem, 1.41rem + 0.76vw, 2.00rem);
+  --step-3:  clamp(1.95rem, 1.71rem + 1.20vw, 2.66rem);
+  --step-4:  clamp(2.44rem, 2.06rem + 1.90vw, 3.55rem);
+  --step-5:  clamp(3.05rem, 2.47rem + 2.92vw, 4.73rem);
+  --step-6:  clamp(3.81rem, 2.94rem + 4.37vw, 6.31rem);
+
+  /* ---- Space ---- */
+  --space-2xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.65rem);
+  --space-xs:  clamp(0.75rem, 0.68rem + 0.35vw, 0.95rem);
+  --space-s:   clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
+  --space-m:   clamp(1.5rem, 1.35rem + 0.75vw, 1.95rem);
+  --space-l:   clamp(2.25rem, 2rem + 1.25vw, 3rem);
+  --space-xl:  clamp(3.5rem, 3rem + 2.5vw, 5rem);
+  --space-2xl: clamp(5rem, 4rem + 5vw, 8rem);
+
+  --container: 72rem;
+  --container-wide: 86rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ---- Surface & depth ---- */
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --shadow-card: 0 1px 2px rgba(21,48,30,.06), 0 12px 32px -12px rgba(21,48,30,.22);
+  --shadow-lift: 0 2px 4px rgba(21,48,30,.08), 0 24px 48px -16px rgba(21,48,30,.32);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 220ms;
+  --dur-med: 420ms;
+}

@@ -1,0 +1,58 @@
+{
+  "note": "No confirmed event programming exists yet. Every listing below is a SAMPLE shown to demonstrate the events system, and is labeled as such on the site. Replace with real events as they are confirmed.",
+  "programmingStatus": "Event programming to be announced. The listings shown are samples that demonstrate how special and recurring events will appear.",
+
+  "special": [
+    {
+      "id": "sample-corridor-walk",
+      "sample": true,
+      "title": "Corridor Walk & Building Stories",
+      "date": "TBD",
+      "time": "TBD",
+      "location": "Lake Forest Blvd — meeting point TBD",
+      "description": "A guided walk of the Crowder-to-Bullard corridor: which buildings are crossing the 50-year line, what the tax credit could do for each, and what the district plan proposes.",
+      "category": "Community"
+    },
+    {
+      "id": "sample-owner-briefing",
+      "sample": true,
+      "title": "Property Owner Tax-Credit Briefing",
+      "date": "TBD",
+      "time": "TBD",
+      "location": "TBD",
+      "description": "A working session for corridor owners and long-term lessees: eligibility, the two-step approval path, and how the worked example translates to a real building.",
+      "category": "Owners & Developers"
+    },
+    {
+      "id": "sample-park-day",
+      "sample": true,
+      "title": "District Day at Joe W. Brown Park",
+      "date": "TBD",
+      "time": "TBD",
+      "location": "Joe W. Brown Memorial Park",
+      "description": "A family day at the district's green anchor — nature, water, and culture, all in one afternoon.",
+      "category": "Family"
+    }
+  ],
+
+  "recurring": [
+    {
+      "id": "sample-board-session",
+      "sample": true,
+      "title": "LFCD Board Working Session",
+      "schedule": "Monthly — schedule TBD",
+      "location": "TBD",
+      "description": "Open working sessions on the resubmission strategy, asset assessment, and corridor outreach.",
+      "category": "Governance"
+    },
+    {
+      "id": "sample-nature-programs",
+      "sample": true,
+      "title": "Nature Center Programs",
+      "schedule": "Recurring — see Louisiana Nature Center",
+      "location": "Louisiana Nature Center",
+      "description": "Ongoing environmental education programming at the district's nature anchor.",
+      "category": "Education"
+    }
+  ]
+}

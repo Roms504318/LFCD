@@ -21,10 +21,11 @@ export function motionEnabled() {
 /* ---------- Smooth scroll ---------- */
 export function initSmoothScroll() {
   if (reduced || !hasLenis || !hasGSAP) return;
-  /* lerp (not duration) so chunky mouse-wheel input stays responsive;
-     duration-based easing restarts a long glide on every wheel notch,
-     which reads as slow-and-stuttering on a mouse (trackpad/touch are fine). */
-  const lenis = new window.Lenis({ lerp: 0.12, smoothWheel: true, wheelMultiplier: 1.1 });
+  /* smoothWheel: false — let the mouse wheel scroll natively (instant, responsive).
+     Lenis still handles touch/trackpad smoothing and programmatic scrollTo calls.
+     Intercepting wheel events (smoothWheel: true) re-times every notch through
+     Lenis's easing, which always reads as sluggish with a physical scroll wheel. */
+  const lenis = new window.Lenis({ lerp: 0.12, smoothWheel: false });
   lenis.on("scroll", window.ScrollTrigger.update);
   window.gsap.ticker.add((time) => lenis.raf(time * 1000));
   window.gsap.ticker.lagSmoothing(0);

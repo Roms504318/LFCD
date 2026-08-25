@@ -1,31 +1,26 @@
 {
-  "comment": "Map data seam. The static corridor map image is the current presentation layer; the geometry below is placeholder structure ready to receive real GeoJSON and a tile provider (Leaflet / MapLibre) later. TODO: replace placeholder coordinates with surveyed boundary geometry.",
-
+  "comment": "Map data seam. Per the committee (Aug 2026), the proposed map is the 2025 proposed map — one map, no before/after. The static image below is extracted from the July 23, 2026 committee presentation. The geometry structure is ready to receive real GeoJSON and a tile provider (Leaflet / MapLibre) later. TODO: replace placeholder coordinates with surveyed boundary geometry.",
   "staticMaps": {
-    "focused": {
-      "image": "assets/img/map-corridor.jpg",
-      "alt": "Map of the focused Lake Forest Cultural District corridor along Lake Forest Boulevard from Crowder Boulevard to Bullard Avenue, with numbered cultural asset markers and Joe W. Brown Park",
-      "caption": "The focused corridor: Crowder → Bullard, ~3 walkable miles along the old main street."
-    },
-    "broad": {
-      "image": "assets/img/map-broad.jpg",
-      "alt": "Earlier, broader proposed district map spreading across large residential areas of New Orleans East",
-      "caption": "Before: a broad, diffuse map spread across residential areas that don't directly benefit. Hard to message. Hard to deliver."
+    "district": {
+      "image": "assets/img/map-district-2025.jpg",
+      "alt": "Lake Forest Cultural District map — the 2025 proposed boundary bounded by Mayo Rd., the I-10 Service Rd., Michoud Blvd., and Dwyer Blvd., with numbered cultural asset markers and Joe W. Brown Park",
+      "caption": "The proposed Lake Forest Cultural District — the 2025 proposed boundary, with numbered cultural asset markers. Source: LFCD committee presentation, July 23, 2026."
     }
   },
-
+  "boundaryStreets": ["Mayo Rd.", "I-10 Service Rd.", "Michoud Blvd.", "Dwyer Blvd."],
   "corridor": {
-    "from": { "name": "Crowder Boulevard", "placeholder": true, "lngLat": null },
-    "to": { "name": "Bullard Avenue", "placeholder": true, "lngLat": null },
-    "alongStreet": "Lake Forest Boulevard",
-    "approxMiles": 3
+    "from": { "name": "Mayo Rd.", "placeholder": true, "lngLat": null },
+    "to": { "name": "Michoud Blvd.", "placeholder": true, "lngLat": null },
+    "alongStreet": "Lake Forest Boulevard"
   },
-
   "anchorMarkers": [
     { "id": "joe-brown-park", "name": "Joe W. Brown Memorial Park", "placeholder": true, "lngLat": null },
-    { "id": "nature-center", "name": "Louisiana Nature Center", "placeholder": true, "lngLat": null }
+    { "id": "nature-center", "name": "Audubon Louisiana Nature Center", "placeholder": true, "lngLat": null }
   ],
-
+  "markerLegend": {
+    "pending": true,
+    "note": "The numbered markers identify the district's cultural anchors, businesses, and partners. The itemized list is being imported from lakeforestculturaldistrict.org."
+  },
   "boundary": {
     "placeholder": true,
     "geojson": {

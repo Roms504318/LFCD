@@ -286,30 +286,102 @@ export function filterEvents(type) {
   });
 }
 
-/* ---------- Map ---------- */
+/* ---------- Map ----------
+   One map only, per the committee: the proposed map remains the
+   2025 proposed map. */
 export function renderMap(mapData) {
-  const focused = $("#map-focused");
-  if (focused) {
-    focused.src = mapData.staticMaps.focused.image;
-    focused.alt = mapData.staticMaps.focused.alt;
+  const district = $("#map-district");
+  if (district) {
+    district.src = mapData.staticMaps.district.image;
+    district.alt = mapData.staticMaps.district.alt;
   }
-  const focusedCap = $("#map-focused-caption");
-  if (focusedCap) focusedCap.textContent = mapData.staticMaps.focused.caption;
+  const cap = $("#map-district-caption");
+  if (cap) cap.textContent = mapData.staticMaps.district.caption;
 
-  /* Before/after map comparison */
-  const cmpBroad = $("#cmp-broad");
-  const cmpFocused = $("#cmp-focused");
-  if (cmpBroad) {
-    cmpBroad.src = mapData.staticMaps.broad.image;
-    cmpBroad.alt = mapData.staticMaps.broad.alt;
+  const streets = $("#boundary-streets");
+  if (streets) {
+    streets.innerHTML = mapData.boundaryStreets
+      .map((s) => `<span>${s}</span>`)
+      .join('<span class="line" aria-hidden="true"></span>');
   }
-  if (cmpFocused) {
-    cmpFocused.src = mapData.staticMaps.focused.image;
-    cmpFocused.alt = mapData.staticMaps.focused.alt;
-  }
+  const legendNote = $("#marker-legend-note");
+  if (legendNote && mapData.markerLegend) legendNote.textContent = mapData.markerLegend.note;
 
   document.querySelectorAll("[data-endpoint-from]").forEach((el) => (el.textContent = mapData.corridor.from.name));
   document.querySelectorAll("[data-endpoint-to]").forEach((el) => (el.textContent = mapData.corridor.to.name));
+}
+
+/* ---------- Anchors only (Businesses page) ---------- */
+export function renderAnchors(projects) {
+  const wrap = $("#anchor-grid");
+  if (!wrap) return;
+  wrap.innerHTML = projects.anchors
+    .map(
+      (a) => `<button class="asset-card asset-card--anchor" data-asset-id="${a.id}" type="button">
+      <span class="asset-card__year"><small>District anchor</small>◆</span>
+      <span class="asset-card__name">${a.name}</span>
+      <ul class="asset-card__facts"><li>${a.summary}</li></ul>
+      <span class="asset-card__cta">Open detail →</span>
+    </button>`
+    )
+    .join("");
+  wrap.querySelectorAll("[data-asset-id]").forEach((card) => {
+    card.addEventListener("click", () => {
+      const item = projects.anchors.find((x) => x.id === card.dataset.assetId);
+      if (item) openModal(assetDetailHTML(item, projects.disclaimer));
+    });
+  });
+}
+
+/* ---------- 4 Pillars page ---------- */
+export function renderPillars(pillars) {
+  const mission = $("#pillars-mission");
+  if (mission) mission.textContent = pillars.mission;
+  const intro = $("#pillars-intro");
+  if (intro) intro.textContent = pillars.intro;
+
+  const grid = $("#pillars-grid");
+  if (grid) {
+    grid.innerHTML = pillars.pillars
+      .map(
+        (p) => `<article class="pillar-card">
+        <header class="pillar-card__head">
+          <h3>${p.lfcd}</h3>
+          <p class="pillar-card__msa">MSA point: <strong>${p.msa}</strong></p>
+        </header>
+        <p class="pillar-card__focus">${p.msaFocus}</p>
+        <dl class="pillar-card__meta">
+          <div><dt>Sub-committees</dt><dd>${p.subCommittees.join(" · ")}</dd></div>
+          <div><dt>Outcome</dt><dd>${p.outcome}</dd></div>
+        </dl>
+        ${p.note ? `<p class="pillar-card__note">${p.note}</p>` : ""}
+      </article>`
+      )
+      .join("");
+  }
+
+  const gov = pillars.governance;
+  const govTitle = $("#gov-title");
+  if (govTitle) govTitle.textContent = gov.title;
+  const govImg = $("#gov-chart");
+  if (govImg) {
+    govImg.src = gov.image;
+    govImg.alt = gov.alt;
+  }
+  const govSummary = $("#gov-summary");
+  if (govSummary) govSummary.textContent = gov.summary;
+  const govStatus = $("#gov-status");
+  if (govStatus) govStatus.textContent = gov.status;
+
+  const dl = $("#pillars-download");
+  if (dl) {
+    dl.href = pillars.download.file;
+    dl.setAttribute("download", "");
+  }
+  const dlDesc = $("#pillars-download-desc");
+  if (dlDesc) dlDesc.textContent = pillars.download.description;
+  const src = $("#pillars-source");
+  if (src) src.textContent = pillars.source;
 }
 
 /* ---------- Footer ---------- */

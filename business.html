@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Events — Lake Forest Cultural District</title>
-  <meta name="description" content="Special and recurring events in the proposed Lake Forest Cultural District, New Orleans East.">
+  <title>Businesses & Partners — Lake Forest Cultural District</title>
+  <meta name="description" content="The Lake Forest Cultural District's existing cultural anchors, businesses, and partnerships, mapped across the district.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2315301E'/><path d='M30 58 q10 -8 20 0 t20 0' stroke='%23C29A3B' stroke-width='5' fill='none' stroke-linecap='round'/><circle cx='50' cy='36' r='9' fill='%239FBC97'/></svg>">
 </head>
 
-<body data-page="events">
+<body data-page="business">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -46,44 +46,73 @@
         <a href="index.html#story">Story</a>
         <a href="map.html">Map</a>
         <a href="pillars.html">4 Pillars</a>
-        <a href="business.html">Businesses</a>
+        <a href="business.html" aria-current="page">Businesses</a>
         <a href="buildings.html">Buildings</a>
-        <a href="events.html" aria-current="page">Events</a>
+        <a href="events.html">Events</a>
         <a href="artworks.html">Artworks</a>
         <a href="committees.html">Committees</a>
         <a href="gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
-
   <main id="main">
-    <section class="page-hero" aria-label="Events">
+    <section class="page-hero" aria-label="Businesses and partners">
       <div class="container">
         <span class="status-chip" data-status-chip></span>
-        <h1 style="margin-top:var(--space-s)">Events on the corridor.</h1>
-        <p class="lede">Special one-time gatherings and the recurring rhythms of the district — from board working sessions to days in the park.</p>
+        <h1 style="margin-top:var(--space-s)">Businesses &amp; partners.</h1>
+        <p class="lede">The district's existing cultural anchors, businesses, and partnerships — the people and places the designation is built to promote.</p>
       </div>
     </section>
 
-    <section class="band" aria-label="Event listings">
+    <section class="band" aria-label="District map with cultural asset markers">
+      <div class="container container--wide">
+        <div class="section-head" data-reveal>
+          <p class="kicker">On the map</p>
+          <h2>The markers are the district.</h2>
+        </div>
+        <figure class="map-figure" data-reveal>
+          <img id="map-district" src="assets/img/map-district-2025.jpg" alt="">
+        </figure>
+        <div class="map-caption">
+          <span id="map-district-caption"></span>
+        </div>
+        <p style="margin-top:var(--space-m);font-size:var(--step--1);color:var(--ink-soft)" data-reveal id="marker-legend-note"></p>
+      </div>
+    </section>
+
+    <section class="band band--sage" aria-label="District anchors">
+      <div class="container container--wide">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Anchors</p>
+          <h2>The institutions holding the ground.</h2>
+        </div>
+        <div class="card-grid" id="anchor-grid" data-reveal-stagger>
+          <!-- Rendered from data/projects.json -->
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-label="Business and partner listings">
       <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Directory</p>
+          <h2>Cultural businesses &amp; partnerships.</h2>
+        </div>
         <div class="events-note" data-reveal>
-          <span class="badge badge--pending">Programming TBA</span>
-          <span id="events-note"></span>
-        </div>
-
-        <div class="filter-tabs" role="group" aria-label="Filter events">
-          <button type="button" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" data-filter="special" aria-pressed="false">Special events</button>
-          <button type="button" data-filter="recurring" aria-pressed="false">Recurring</button>
-        </div>
-
-        <div class="events-grid" id="events-grid" data-reveal-stagger>
-          <!-- Rendered from data/events.json -->
+          <span class="badge badge--pending">Content being imported</span>
+          <span>The itemized list of cultural businesses and partners is being imported from <a href="https://www.lakeforestculturaldistrict.org/">lakeforestculturaldistrict.org</a>. Nothing is listed here until it is confirmed.</span>
         </div>
       </div>
     </section>
   </main>
+
+  <div class="modal" id="asset-modal" role="dialog" aria-modal="true" aria-label="Asset detail">
+    <div class="modal__scrim"></div>
+    <div class="modal__panel">
+      <button class="modal__close" type="button" aria-label="Close detail">✕</button>
+      <div class="modal__content"></div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container site-footer__grid">

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Events — Lake Forest Cultural District</title>
-  <meta name="description" content="Special and recurring events in the proposed Lake Forest Cultural District, New Orleans East.">
+  <title>The 4 Main Street Pillars — Lake Forest Cultural District</title>
+  <meta name="description" content="The LFCD committee's four pillars — Administration, Assets, Economic Development, Marketing — aligned with Main Street America's Organization, Design, Economic Vitality, and Promotion, plus the proposed board governance structure.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2315301E'/><path d='M30 58 q10 -8 20 0 t20 0' stroke='%23C29A3B' stroke-width='5' fill='none' stroke-linecap='round'/><circle cx='50' cy='36' r='9' fill='%239FBC97'/></svg>">
 </head>
 
-<body data-page="events">
+<body data-page="pillars">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -45,42 +45,68 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html#story">Story</a>
         <a href="map.html">Map</a>
-        <a href="pillars.html">4 Pillars</a>
+        <a href="pillars.html" aria-current="page">4 Pillars</a>
         <a href="business.html">Businesses</a>
         <a href="buildings.html">Buildings</a>
-        <a href="events.html" aria-current="page">Events</a>
+        <a href="events.html">Events</a>
         <a href="artworks.html">Artworks</a>
         <a href="committees.html">Committees</a>
         <a href="gallery.html">Gallery</a>
       </nav>
     </div>
   </header>
-
   <main id="main">
-    <section class="page-hero" aria-label="Events">
+    <section class="page-hero" aria-label="The four Main Street pillars">
       <div class="container">
         <span class="status-chip" data-status-chip></span>
-        <h1 style="margin-top:var(--space-s)">Events on the corridor.</h1>
-        <p class="lede">Special one-time gatherings and the recurring rhythms of the district — from board working sessions to days in the park.</p>
+        <h1 style="margin-top:var(--space-s)">The 4 Main Street Pillars.</h1>
+        <p class="lede" id="pillars-intro"></p>
       </div>
     </section>
 
-    <section class="band" aria-label="Event listings">
+    <section class="band" aria-label="Mission">
       <div class="container">
-        <div class="events-note" data-reveal>
-          <span class="badge badge--pending">Programming TBA</span>
-          <span id="events-note"></span>
+        <div class="section-head" data-reveal>
+          <p class="kicker">Mission</p>
+          <h2>Why the district exists.</h2>
         </div>
+        <p class="lede" id="pillars-mission" data-reveal></p>
+      </div>
+    </section>
 
-        <div class="filter-tabs" role="group" aria-label="Filter events">
-          <button type="button" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" data-filter="special" aria-pressed="false">Special events</button>
-          <button type="button" data-filter="recurring" aria-pressed="false">Recurring</button>
+    <section class="band band--sage" aria-label="The four pillars">
+      <div class="container container--wide">
+        <div class="section-head" data-reveal>
+          <p class="kicker">LFCD committees · Main Street America points</p>
+          <h2>Four pillars, one framework.</h2>
         </div>
+        <div class="pillar-grid" id="pillars-grid" data-reveal-stagger>
+          <!-- Rendered from data/pillars.json -->
+        </div>
+      </div>
+    </section>
 
-        <div class="events-grid" id="events-grid" data-reveal-stagger>
-          <!-- Rendered from data/events.json -->
+    <section class="band" aria-label="Proposed governance">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Organization</p>
+          <h2 id="gov-title"></h2>
         </div>
+        <figure class="map-figure" data-reveal>
+          <img id="gov-chart" src="assets/img/org-chart.jpg" alt="">
+        </figure>
+        <p class="lede" style="margin-top:var(--space-m);font-size:var(--step-0)" id="gov-summary" data-reveal></p>
+        <p data-reveal><span class="badge badge--pending">Proposed</span> <span id="gov-status" style="font-size:var(--step--1);color:var(--ink-soft)"></span></p>
+        <p style="margin-top:var(--space-l)" data-reveal>
+          <a class="btn btn--gold" id="pillars-download" href="assets/docs/LFCD_Agenda_Presentation_CD_and_MSA_July_23_2026.pdf" download>Download the committee presentation (PDF) <span class="arrow">↓</span></a>
+        </p>
+        <p style="font-size:0.8rem;color:var(--ink-soft)" id="pillars-download-desc" data-reveal></p>
+      </div>
+    </section>
+
+    <section class="band band--tight band--sage" aria-label="Source">
+      <div class="container">
+        <p style="font-size:0.8rem;color:var(--ink-soft)" id="pillars-source"></p>
       </div>
     </section>
   </main>

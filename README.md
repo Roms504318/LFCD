@@ -1,8 +1,9 @@
 # Lake Forest Cultural District — Stakeholder Concept Site
 
 A static HTML/CSS/JS concept site for the proposed **Lake Forest Cultural District**
-in New Orleans East: the Lake Forest Boulevard commercial corridor, Crowder Boulevard
-to Bullard Avenue, anchored by Joe W. Brown Memorial Park and the Louisiana Nature Center.
+in New Orleans East — the 2025 proposed boundary (Mayo Rd. · I-10 Service Rd. ·
+Michoud Blvd. · Dwyer Blvd.), centered on Lake Forest Boulevard and anchored by
+Joe W. Brown Memorial Park and the Audubon Louisiana Nature Center.
 
 **Designation status is data-driven** and currently reads
 *"Proposed — application in progress"* from `data/district.json`. Nothing on the site
@@ -27,9 +28,15 @@ Any static server works (`npx serve`, VS Code Live Server, etc.).
 
 ```
 /
-  index.html        Homepage — hero, scroll story, map, assets, events teaser
+  index.html        Homepage / Story — hero, scroll story (Orlandia → Main Street focus), map, events teaser
+  map.html          Full map view — the single 2025 proposed district map
+  pillars.html      The 4 Main Street Pillars — LFCD committees ↔ MSA points, governance chart, presentation download
+  business.html     Businesses & partners — district map markers, anchors, directory (imports pending)
+  buildings.html    Buildings & Historic Tax Credits — property records, program stats, worked example, eligibility
   events.html       Events — special vs recurring, filterable, data-driven
-  map.html          Full map view — corridor map, before/after comparison
+  artworks.html     Artworks — scaffold, content importing from lakeforestculturaldistrict.org
+  committees.html   Committees — scaffold, content importing from lakeforestculturaldistrict.org
+  gallery.html      Community gallery — scaffold, content importing from lakeforestculturaldistrict.org
   /css/
     tokens.css      Palette, type scale, spacing, motion tokens (edit colors here)
     base.css        Reset, typography, accessibility primitives
@@ -41,7 +48,8 @@ Any static server works (`npx serve`, VS Code Live Server, etc.).
     components.js   Slider, stage viewer, modal, tabs (keyboard accessible)
     motion.js       GSAP + ScrollTrigger + Lenis choreography (reduced-motion safe)
     main.js         Per-page bootstrap
-  /assets/img/      Web-optimized images extracted from the project PDFs
+  /assets/img/      Web-optimized images extracted from the project PDFs and committee materials
+  /assets/docs/     Downloadable documents (committee presentation PDF)
   /data/            ALL editable content (see below)
   README.md
 ```
@@ -56,7 +64,8 @@ Every piece of copy, every fact, and every record lives in `/data/`:
 | `projects.json` | The 7 corridor properties, 2 anchors, and the rehabilitation visualization sets | Property fields: history, year built, owner, historic status, significance, photos. `null` fields render as clearly-marked placeholders |
 | `events.json` | Special and recurring events | Listings with `"sample": true` get a visible **Sample** badge. Replace with real events as confirmed |
 | `metrics.json` | The honest counts (including the real zeros), comparison bars, program numbers | Zeros are intentional — they are the argument |
-| `map.json` | Static map images/captions, corridor endpoints, **placeholder** boundary GeoJSON | Drop in surveyed GeoJSON when available |
+| `map.json` | The single 2025 district map image/caption, boundary streets, **placeholder** boundary GeoJSON | Per the committee (Aug 2026): one map — the 2025 proposed map. Drop in surveyed GeoJSON when available |
+| `pillars.json` | The 4 Pillars page: mission, LFCD committees ↔ MSA four points, sub-committees, outcomes, governance chart, presentation download | Sourced from the July 23, 2026 committee presentation |
 
 ### Honesty rules baked into the build
 
@@ -104,3 +113,11 @@ the June 2026 board deck (`260604-Lake-Forest-Cultural-District.pdf`), the HTC p
 rehabilitation visualizations (`LFCD - Visualization.pdf`), and the program project
 records (`Historic Tax Credits Program Projects.pdf`). The "Orlandia" advertisement in
 the history chapter is reproduced from the visualization deck.
+
+## Pending content imports
+
+Per the committee's August 2026 direction, the **Businesses directory**, **Events**,
+**Artworks**, **Committees**, and **Community gallery** pages are to be populated from
+[lakeforestculturaldistrict.org](https://www.lakeforestculturaldistrict.org/). Until that
+content is confirmed, those sections render a visible "Content being imported" notice —
+nothing unverified is presented as fact.

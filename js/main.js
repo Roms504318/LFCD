@@ -15,20 +15,14 @@ async function boot() {
 
   try {
     if (page === "home") {
-      const { district, projects, events, metrics, map } = await loadData();
+      const { district, events, metrics, map } = await loadData("district", "events", "metrics", "map");
       render.renderHero(district);
       render.renderStory(district);
-      render.renderProgramStats(metrics);
       render.renderHonestNumbers(metrics);
-      render.renderWorkedExample(district);
-      render.renderEligibility(district);
       render.renderIsIsNot(district);
-      render.renderAssets(projects);
-      render.renderVisualizations(projects);
       render.renderEvents(events, { teaserOnly: true });
       render.renderMap(map);
       render.renderFooter(district);
-      ui.initModal();
     }
 
     if (page === "events") {
@@ -40,12 +34,49 @@ async function boot() {
     }
 
     if (page === "map") {
+      const { district, map } = await loadData("district", "map");
+      render.renderStatusChips(district);
+      render.renderMap(map);
+      render.renderFooter(district);
+    }
+
+    /* Buildings — the property records and the Historic Tax Credit case, together */
+    if (page === "buildings") {
+      const { district, projects, metrics } = await loadData("district", "projects", "metrics");
+      render.renderStatusChips(district);
+      render.renderStory(district); /* fills the HTC "tool" chapter on this page */
+      render.renderProgramStats(metrics);
+      render.renderWorkedExample(district);
+      render.renderEligibility(district);
+      render.renderAssets(projects);
+      render.renderVisualizations(projects);
+      render.renderFooter(district);
+      ui.initModal();
+    }
+
+    /* Businesses — the district map plus cultural anchors, businesses, partners */
+    if (page === "business") {
       const { district, map, projects } = await loadData("district", "map", "projects");
       render.renderStatusChips(district);
       render.renderMap(map);
-      render.renderAssets(projects);
+      render.renderAnchors(projects);
       render.renderFooter(district);
       ui.initModal();
+    }
+
+    /* 4 Pillars */
+    if (page === "pillars") {
+      const { district, pillars } = await loadData("district", "pillars");
+      render.renderStatusChips(district);
+      render.renderPillars(pillars);
+      render.renderFooter(district);
+    }
+
+    /* Scaffold pages awaiting content from lakeforestculturaldistrict.org */
+    if (page === "basic") {
+      const { district } = await loadData("district");
+      render.renderStatusChips(district);
+      render.renderFooter(district);
     }
   } catch (err) {
     /* If data fails to load (e.g. opened via file://), say so honestly */

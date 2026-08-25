@@ -56,5 +56,14 @@
     "anchors": 2,
     "firstBuildingTurns50": 2026,
     "boundary": "Mayo Rd. – I-10 Service Rd. – Michoud Blvd. – Dwyer Blvd."
+  },
+  "culturalAssets": {
+    "comment": "Bifurcated from the tax-credit $0 per the Aug 25, 2026 meeting. Fill items[] with documented values as they are compiled (K. Angelo). An item with value: null renders as the '+' — counted in spirit, not in the total. Set status to 'published' when the numbers are verified.",
+    "status": "compiling",
+    "headline": "And what is already here",
+    "compilingNote": "The dollar value of the district's existing cultural assets — Franklin Avenue Baptist Church, the Audubon Louisiana Nature Center, Joe W. Brown Memorial Park, Bayou Phoenix investment to date, and individually parceled restaurants — is being compiled from public records. Sources and exclusions will be published with the number.",
+    "includedNote": "",
+    "excludedNote": "Entities without individual parcel records are represented by the '+', not counted in the total.",
+    "items": []
   }
 }

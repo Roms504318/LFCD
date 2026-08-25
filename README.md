@@ -121,3 +121,19 @@ Per the committee's August 2026 direction, the **Businesses directory**, **Event
 [lakeforestculturaldistrict.org](https://www.lakeforestculturaldistrict.org/). Until that
 content is confirmed, those sections render a visible "Content being imported" notice —
 nothing unverified is presented as fact.
+
+## Connecting the lakeforestculturaldistrict.org domain (hand-off)
+
+Per the Aug 25, 2026 meeting: keep the domain registered at Squarespace and point it at the
+Vercel deployment — no migration of either site's content is required, and the Squarespace
+pages stay fully editable at their own URLs.
+
+1. In the Vercel project → **Settings → Domains**, add `lakeforestculturaldistrict.org`
+   and `www.lakeforestculturaldistrict.org`.
+2. In Squarespace → **Settings → Domains → DNS Settings** for the domain:
+   - `A` record, host `@`, value `76.76.21.21`
+   - `CNAME` record, host `www`, value `cname.vercel-dns.com`
+3. Vercel verifies the records and issues SSL automatically (allow up to an hour for DNS).
+
+**Hand-off package:** the repo itself is the package. A zip of everything needed to run the
+site: `git archive --format=zip -o lfcd-site.zip HEAD` — or GitHub → Code → Download ZIP.

@@ -18,7 +18,8 @@ async function boot() {
       const { district, events, metrics, map } = await loadData("district", "events", "metrics", "map");
       render.renderHero(district);
       render.renderStory(district);
-      render.renderHonestNumbers(metrics);
+      render.renderHonestZeros(metrics);
+      render.renderCulturalAssets(metrics);
       render.renderIsIsNot(district);
       render.renderEvents(events, { teaserOnly: true });
       render.renderMap(map);
@@ -46,6 +47,7 @@ async function boot() {
       render.renderStatusChips(district);
       render.renderStory(district); /* fills the HTC "tool" chapter on this page */
       render.renderProgramStats(metrics);
+      render.renderComparisonBars(metrics);
       render.renderWorkedExample(district);
       render.renderEligibility(district);
       render.renderAssets(projects);

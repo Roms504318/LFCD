@@ -13,8 +13,7 @@ const $ = (sel, root = document) => root.querySelector(sel);
 /* ---------- Hero (home) ---------- */
 export function renderHero(district) {
   $("#hero-kicker").textContent = district.hero.kicker;
-  $("#hero-title").innerHTML =
-    district.hero.title.replace("second act", "<em>second act</em>");
+  $("#hero-title").textContent = district.hero.title;
   $("#hero-lede").textContent = district.hero.lede;
   $("#hero-welcome").textContent = district.hero.welcome;
   renderStatusChips(district);
@@ -65,11 +64,43 @@ export function renderProgramStats(metrics) {
     .join("");
 }
 
-/* ---------- Honest zeros + comparison bars ---------- */
-export function renderHonestNumbers(metrics) {
+/* ---------- Honest zeros (home teaser) ---------- */
+export function renderHonestZeros(metrics) {
   const head = $("#zeros-explainer");
   if (head) head.textContent = metrics.honestZeros.explainer;
+}
 
+/* ---------- Value of existing cultural assets (home) ----------
+   Bifurcated from the $0 tax-credit figure per the Aug 25 meeting.
+   Shows a visible "being compiled" state until the documented
+   numbers land in data/metrics.json. */
+export function renderCulturalAssets(metrics) {
+  const wrap = $("#cultural-assets");
+  if (!wrap) return;
+  const ca = metrics.culturalAssets;
+  if (!ca) { wrap.hidden = true; return; }
+
+  const compiling = ca.status === "compiling" || !(ca.items || []).length;
+  const total = (ca.items || []).reduce((s, i) => s + (i.value || 0), 0);
+  const hasPlus = compiling || (ca.items || []).some((i) => i.value == null);
+
+  $("#cultural-assets-headline").textContent = ca.headline;
+  const fig = $("#cultural-assets-figure");
+  if (compiling) {
+    fig.textContent = "$ — +";
+    fig.style.color = "var(--ink-soft)";
+  } else {
+    fig.textContent = fmt.currency(total) + (hasPlus ? "+" : "");
+  }
+  $("#cultural-assets-note").textContent = compiling
+    ? ca.compilingNote
+    : [ca.includedNote, ca.excludedNote].filter(Boolean).join(" ");
+  const badge = $("#cultural-assets-badge");
+  if (badge) badge.hidden = !compiling;
+}
+
+/* ---------- Comparison bars (buildings page) ---------- */
+export function renderComparisonBars(metrics) {
   const barsWrap = $("#comparison-bars");
   if (!barsWrap) return;
   const max = Math.max(...metrics.comparison.map((c) => c.value));
@@ -249,10 +280,11 @@ const icons = {
 
 function eventCardHTML(ev, type) {
   const special = type === "special";
-  const when = special ? `${ev.date}${ev.time && ev.time !== "TBD" ? " · " + ev.time : ""}` : ev.schedule;
+  const past = type === "past";
+  const when = special || past ? `${ev.date || ""}${ev.time && ev.time !== "TBD" ? " · " + ev.time : ""}` : ev.schedule;
   return `<article class="event-card ${special ? "event-card--special" : ""}" data-event-type="${type}">
     <div class="event-card__meta">
-      <span class="event-card__type">${special ? "Special event" : "Recurring"}</span>
+      <span class="event-card__type">${special ? "Special event" : past ? "Past event" : "Recurring"}</span>
       ${ev.sample ? `<span class="badge badge--sample">Sample</span>` : ""}
     </div>
     <h3 style="font-size:var(--step-1)">${ev.title}</h3>
@@ -273,11 +305,19 @@ export function renderEvents(events, { teaserOnly = false } = {}) {
 
   let special = events.special.map((e) => eventCardHTML(e, "special"));
   let recurring = events.recurring.map((e) => eventCardHTML(e, "recurring"));
+  let past = (events.past || []).map((e) => eventCardHTML(e, "past"));
   if (teaserOnly) {
     wrap.innerHTML = [...special.slice(0, 2), ...recurring.slice(0, 1)].join("");
     return;
   }
-  wrap.innerHTML = [...special, ...recurring].join("");
+  wrap.innerHTML = [...special, ...recurring, ...past].join("");
+
+  /* Past-events import notice (events page only) */
+  const pastNote = $("#past-note");
+  if (pastNote) {
+    pastNote.textContent = past.length ? "" : events.pastNote || "";
+    pastNote.closest("[data-past-note-wrap]")?.toggleAttribute("hidden", past.length > 0);
+  }
 }
 
 export function filterEvents(type) {
@@ -380,6 +420,8 @@ export function renderPillars(pillars) {
   }
   const dlDesc = $("#pillars-download-desc");
   if (dlDesc) dlDesc.textContent = pillars.download.description;
+  const gi = $("#pillars-getinvolved");
+  if (gi) gi.textContent = pillars.getInvolved || "";
   const src = $("#pillars-source");
   if (src) src.textContent = pillars.source;
 }

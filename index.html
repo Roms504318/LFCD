@@ -220,12 +220,21 @@
         </div>
         <p class="lede" id="zeros-explainer" data-reveal></p>
 
-        <div class="bars" id="comparison-bars" data-reveal>
-          <!-- Rendered from data/metrics.json -->
-        </div>
-        <p style="margin-top:var(--space-m);font-size:var(--step--1);color:var(--ink-soft)" data-reveal>
-          Historic Tax Credit program investment, 2017–24. Zeros shown are real zeros — they are the case for the district, not a decoration.
+        <p style="margin-top:var(--space-m)" data-reveal>
+          <a class="btn btn--gold" href="buildings.html">Find out more — the full tax-credit case <span class="arrow">→</span></a>
         </p>
+
+        <!-- Bifurcated figure: the value of what is already here (Aug 25 meeting).
+             Rendered from data/metrics.json culturalAssets; shows a visible
+             "being compiled" state until documented numbers land. -->
+        <div id="cultural-assets" style="margin-top:var(--space-xl)" data-reveal>
+          <div class="section-head">
+            <p class="kicker" id="cultural-assets-headline"></p>
+            <h2><span class="zero-figure" style="display:block" id="cultural-assets-figure"></span></h2>
+          </div>
+          <p data-reveal><span class="badge badge--pending" id="cultural-assets-badge">Being compiled</span></p>
+          <p class="lede" id="cultural-assets-note" style="font-size:var(--step-0)"></p>
+        </div>
       </div>
     </section>
 

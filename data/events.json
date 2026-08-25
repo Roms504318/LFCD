@@ -1,7 +1,6 @@
 {
   "note": "No confirmed event programming exists yet. Every listing below is a SAMPLE shown to demonstrate the events system, and is labeled as such on the site. Replace with real events as they are confirmed.",
   "programmingStatus": "Event programming to be announced. The listings shown are samples that demonstrate how special and recurring events will appear.",
-
   "special": [
     {
       "id": "sample-corridor-walk",
@@ -34,7 +33,6 @@
       "category": "Family"
     }
   ],
-
   "recurring": [
     {
       "id": "sample-board-session",
@@ -54,5 +52,7 @@
       "description": "Ongoing environmental education programming at the district's nature anchor.",
       "category": "Education"
     }
-  ]
+  ],
+  "past": [],
+  "pastNote": "Past events — Dinner and a Movie, the New Orleans Festival, Kissel Entertainment, Love the Boot, and Audubon Louisiana Nature Center programs — are being imported from lakeforestculturaldistrict.org."
 }

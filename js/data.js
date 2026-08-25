@@ -22,6 +22,7 @@ const SOURCES = {
   events: "data/events.json",
   metrics: "data/metrics.json",
   map: "data/map.json",
+  pillars: "data/pillars.json",
 };
 
 const cache = {};

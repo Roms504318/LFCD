@@ -13,8 +13,7 @@ const $ = (sel, root = document) => root.querySelector(sel);
 /* ---------- Hero (home) ---------- */
 export function renderHero(district) {
   $("#hero-kicker").textContent = district.hero.kicker;
-  $("#hero-title").innerHTML =
-    district.hero.title.replace("second act", "<em>second act</em>");
+  $("#hero-title").textContent = district.hero.title;
   $("#hero-lede").textContent = district.hero.lede;
   $("#hero-welcome").textContent = district.hero.welcome;
   renderStatusChips(district);
@@ -65,11 +64,43 @@ export function renderProgramStats(metrics) {
     .join("");
 }
 
-/* ---------- Honest zeros + comparison bars ---------- */
-export function renderHonestNumbers(metrics) {
+/* ---------- Honest zeros (home teaser) ---------- */
+export function renderHonestZeros(metrics) {
   const head = $("#zeros-explainer");
   if (head) head.textContent = metrics.honestZeros.explainer;
+}
 
+/* ---------- Value of existing cultural assets (home) ----------
+   Bifurcated from the $0 tax-credit figure per the Aug 25 meeting.
+   Shows a visible "being compiled" state until the documented
+   numbers land in data/metrics.json. */
+export function renderCulturalAssets(metrics) {
+  const wrap = $("#cultural-assets");
+  if (!wrap) return;
+  const ca = metrics.culturalAssets;
+  if (!ca) { wrap.hidden = true; return; }
+
+  const compiling = ca.status === "compiling" || !(ca.items || []).length;
+  const total = (ca.items || []).reduce((s, i) => s + (i.value || 0), 0);
+  const hasPlus = compiling || (ca.items || []).some((i) => i.value == null);
+
+  $("#cultural-assets-headline").textContent = ca.headline;
+  const fig = $("#cultural-assets-figure");
+  if (compiling) {
+    fig.textContent = "$ — +";
+    fig.style.color = "var(--ink-soft)";
+  } else {
+    fig.textContent = fmt.currency(total) + (hasPlus ? "+" : "");
+  }
+  $("#cultural-assets-note").textContent = compiling
+    ? ca.compilingNote
+    : [ca.includedNote, ca.excludedNote].filter(Boolean).join(" ");
+  const badge = $("#cultural-assets-badge");
+  if (badge) badge.hidden = !compiling;
+}
+
+/* ---------- Comparison bars (buildings page) ---------- */
+export function renderComparisonBars(metrics) {
   const barsWrap = $("#comparison-bars");
   if (!barsWrap) return;
   const max = Math.max(...metrics.comparison.map((c) => c.value));
@@ -249,10 +280,11 @@ const icons = {
 
 function eventCardHTML(ev, type) {
   const special = type === "special";
-  const when = special ? `${ev.date}${ev.time && ev.time !== "TBD" ? " · " + ev.time : ""}` : ev.schedule;
+  const past = type === "past";
+  const when = special || past ? `${ev.date || ""}${ev.time && ev.time !== "TBD" ? " · " + ev.time : ""}` : ev.schedule;
   return `<article class="event-card ${special ? "event-card--special" : ""}" data-event-type="${type}">
     <div class="event-card__meta">
-      <span class="event-card__type">${special ? "Special event" : "Recurring"}</span>
+      <span class="event-card__type">${special ? "Special event" : past ? "Past event" : "Recurring"}</span>
       ${ev.sample ? `<span class="badge badge--sample">Sample</span>` : ""}
     </div>
     <h3 style="font-size:var(--step-1)">${ev.title}</h3>
@@ -273,11 +305,19 @@ export function renderEvents(events, { teaserOnly = false } = {}) {
 
   let special = events.special.map((e) => eventCardHTML(e, "special"));
   let recurring = events.recurring.map((e) => eventCardHTML(e, "recurring"));
+  let past = (events.past || []).map((e) => eventCardHTML(e, "past"));
   if (teaserOnly) {
     wrap.innerHTML = [...special.slice(0, 2), ...recurring.slice(0, 1)].join("");
     return;
   }
-  wrap.innerHTML = [...special, ...recurring].join("");
+  wrap.innerHTML = [...special, ...recurring, ...past].join("");
+
+  /* Past-events import notice (events page only) */
+  const pastNote = $("#past-note");
+  if (pastNote) {
+    pastNote.textContent = past.length ? "" : events.pastNote || "";
+    pastNote.closest("[data-past-note-wrap]")?.toggleAttribute("hidden", past.length > 0);
+  }
 }
 
 export function filterEvents(type) {
@@ -286,30 +326,104 @@ export function filterEvents(type) {
   });
 }
 
-/* ---------- Map ---------- */
+/* ---------- Map ----------
+   One map only, per the committee: the proposed map remains the
+   2025 proposed map. */
 export function renderMap(mapData) {
-  const focused = $("#map-focused");
-  if (focused) {
-    focused.src = mapData.staticMaps.focused.image;
-    focused.alt = mapData.staticMaps.focused.alt;
+  const district = $("#map-district");
+  if (district) {
+    district.src = mapData.staticMaps.district.image;
+    district.alt = mapData.staticMaps.district.alt;
   }
-  const focusedCap = $("#map-focused-caption");
-  if (focusedCap) focusedCap.textContent = mapData.staticMaps.focused.caption;
+  const cap = $("#map-district-caption");
+  if (cap) cap.textContent = mapData.staticMaps.district.caption;
 
-  /* Before/after map comparison */
-  const cmpBroad = $("#cmp-broad");
-  const cmpFocused = $("#cmp-focused");
-  if (cmpBroad) {
-    cmpBroad.src = mapData.staticMaps.broad.image;
-    cmpBroad.alt = mapData.staticMaps.broad.alt;
+  const streets = $("#boundary-streets");
+  if (streets) {
+    streets.innerHTML = mapData.boundaryStreets
+      .map((s) => `<span>${s}</span>`)
+      .join('<span class="line" aria-hidden="true"></span>');
   }
-  if (cmpFocused) {
-    cmpFocused.src = mapData.staticMaps.focused.image;
-    cmpFocused.alt = mapData.staticMaps.focused.alt;
-  }
+  const legendNote = $("#marker-legend-note");
+  if (legendNote && mapData.markerLegend) legendNote.textContent = mapData.markerLegend.note;
 
   document.querySelectorAll("[data-endpoint-from]").forEach((el) => (el.textContent = mapData.corridor.from.name));
   document.querySelectorAll("[data-endpoint-to]").forEach((el) => (el.textContent = mapData.corridor.to.name));
+}
+
+/* ---------- Anchors only (Businesses page) ---------- */
+export function renderAnchors(projects) {
+  const wrap = $("#anchor-grid");
+  if (!wrap) return;
+  wrap.innerHTML = projects.anchors
+    .map(
+      (a) => `<button class="asset-card asset-card--anchor" data-asset-id="${a.id}" type="button">
+      <span class="asset-card__year"><small>District anchor</small>◆</span>
+      <span class="asset-card__name">${a.name}</span>
+      <ul class="asset-card__facts"><li>${a.summary}</li></ul>
+      <span class="asset-card__cta">Open detail →</span>
+    </button>`
+    )
+    .join("");
+  wrap.querySelectorAll("[data-asset-id]").forEach((card) => {
+    card.addEventListener("click", () => {
+      const item = projects.anchors.find((x) => x.id === card.dataset.assetId);
+      if (item) openModal(assetDetailHTML(item, projects.disclaimer));
+    });
+  });
+}
+
+/* ---------- 4 Pillars page ---------- */
+export function renderPillars(pillars) {
+  const mission = $("#pillars-mission");
+  if (mission) mission.textContent = pillars.mission;
+  const intro = $("#pillars-intro");
+  if (intro) intro.textContent = pillars.intro;
+
+  const grid = $("#pillars-grid");
+  if (grid) {
+    grid.innerHTML = pillars.pillars
+      .map(
+        (p) => `<article class="pillar-card">
+        <header class="pillar-card__head">
+          <h3>${p.lfcd}</h3>
+          <p class="pillar-card__msa">MSA point: <strong>${p.msa}</strong></p>
+        </header>
+        <p class="pillar-card__focus">${p.msaFocus}</p>
+        <dl class="pillar-card__meta">
+          <div><dt>Sub-committees</dt><dd>${p.subCommittees.join(" · ")}</dd></div>
+          <div><dt>Outcome</dt><dd>${p.outcome}</dd></div>
+        </dl>
+        ${p.note ? `<p class="pillar-card__note">${p.note}</p>` : ""}
+      </article>`
+      )
+      .join("");
+  }
+
+  const gov = pillars.governance;
+  const govTitle = $("#gov-title");
+  if (govTitle) govTitle.textContent = gov.title;
+  const govImg = $("#gov-chart");
+  if (govImg) {
+    govImg.src = gov.image;
+    govImg.alt = gov.alt;
+  }
+  const govSummary = $("#gov-summary");
+  if (govSummary) govSummary.textContent = gov.summary;
+  const govStatus = $("#gov-status");
+  if (govStatus) govStatus.textContent = gov.status;
+
+  const dl = $("#pillars-download");
+  if (dl) {
+    dl.href = pillars.download.file;
+    dl.setAttribute("download", "");
+  }
+  const dlDesc = $("#pillars-download-desc");
+  if (dlDesc) dlDesc.textContent = pillars.download.description;
+  const gi = $("#pillars-getinvolved");
+  if (gi) gi.textContent = pillars.getInvolved || "";
+  const src = $("#pillars-source");
+  if (src) src.textContent = pillars.source;
 }
 
 /* ---------- Footer ---------- */

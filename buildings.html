@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buildings & Historic Tax Credits — Lake Forest Cultural District</title>
+  <meta name="description" content="The Lake Forest Cultural District's historic-age buildings and the Louisiana State Commercial Historic Tax Credit — property records, program details, worked example, and eligibility.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2315301E'/><path d='M30 58 q10 -8 20 0 t20 0' stroke='%23C29A3B' stroke-width='5' fill='none' stroke-linecap='round'/><circle cx='50' cy='36' r='9' fill='%239FBC97'/></svg>">
+</head>
+
+<body data-page="buildings">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container container--wide site-header__inner">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="55" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+          <circle cx="60" cy="42" r="15" fill="var(--sage)"/>
+          <circle cx="46" cy="49" r="10" fill="var(--moss)"/>
+          <circle cx="74" cy="49" r="10" fill="var(--moss)"/>
+          <rect x="57.5" y="52" width="5" height="14" rx="2" fill="var(--gold-deep)"/>
+          <path d="M30 78 q7.5 -7 15 0 t15 0 t15 0 t15 0" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M60 88 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6 z" fill="var(--cream)"/>
+        </svg>
+        <span class="brand__text">
+          <span>Lake Forest Cultural District</span>
+          <span class="brand__sub">Nature · Water · Culture</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#story">Story</a>
+        <a href="map.html">Map</a>
+        <a href="pillars.html">4 Pillars</a>
+        <a href="business.html">Businesses</a>
+        <a href="buildings.html" aria-current="page">Buildings</a>
+        <a href="events.html">Events</a>
+        <a href="artworks.html">Artworks</a>
+        <a href="committees.html">Committees</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero" aria-label="Buildings and historic tax credits">
+      <div class="container">
+        <span class="status-chip" data-status-chip></span>
+        <h1 style="margin-top:var(--space-s)">Buildings &amp; Historic Tax Credits.</h1>
+        <p class="lede">The district's historic-age buildings and the financial tool that puts capital behind restoring them — the property records, the program math, and who qualifies, together on one page.</p>
+      </div>
+    </section>
+
+    <!-- ================= Chapter 3: The tool ================= -->
+    <section class="band band--dark" data-chapter="tool" aria-label="Chapter three">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker"></p>
+          <h2></h2>
+        </div>
+        <p class="chapter__body lede" data-reveal></p>
+
+        <div class="stat-row" id="program-stats" style="margin-top:var(--space-l)" data-reveal-stagger>
+          <!-- Rendered from data/metrics.json -->
+        </div>
+
+        <p style="margin-top:var(--space-l);max-width:none" data-reveal>
+          <span class="badge badge--sample" style="margin-right:0.6rem">Important</span>
+          <span id="status-detail-inline" data-status-detail style="color:var(--cream-on-dark-soft);font-size:var(--step--1)"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= The gap on the map ================= -->
+    <section class="band band--sage" aria-label="Where the program has and hasn't invested">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Honest numbers</p>
+          <h2>Where the program has landed — and where it hasn't.</h2>
+        </div>
+        <div class="bars" id="comparison-bars" data-reveal>
+          <!-- Rendered from data/metrics.json -->
+        </div>
+        <p style="margin-top:var(--space-m);font-size:var(--step--1);color:var(--ink-soft)" data-reveal>
+          Historic Tax Credit program investment, 2017–24. Zeros shown are real zeros — they are the case for the district, not a decoration.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Worked example ================= -->
+    <section class="band" aria-label="Worked example">
+      <div class="container chapter chapter--flip">
+        <div>
+          <div class="section-head" data-reveal>
+            <p class="kicker">The math, on a real budget</p>
+            <h2 id="worked-title"></h2>
+          </div>
+          <p data-reveal id="worked-transfer" class="lede" style="font-size:var(--step-0)"></p>
+          <p data-reveal id="worked-note" style="font-size:0.8rem;color:var(--ink-soft);max-width:46ch"></p>
+        </div>
+        <div class="chapter__media" data-reveal="left">
+          <div class="receipt" id="worked-example-wrap">
+            <div id="worked-example"><!-- Rendered from data/district.json --></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Eligibility ================= -->
+    <section class="band band--tight" aria-label="Eligibility">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Who qualifies</p>
+          <h2>Six requirements. One door the district opens.</h2>
+        </div>
+        <div class="elig-grid" id="eligibility-grid" data-reveal-stagger>
+          <!-- Rendered from data/district.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Assets / properties ================= -->
+    <section class="band band--sage" id="assets" aria-label="Community assets and corridor buildings">
+      <div class="container container--wide">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Community assets &amp; corridor buildings</p>
+          <h2>The buildings crossing the historic line.</h2>
+          <p class="lede">Seven documented commercial parcels and two anchors. Each card opens a full record — history, ownership, status, and significance — built to grow as the asset assessment proceeds.</p>
+        </div>
+        <div class="card-grid" id="asset-grid" data-reveal-stagger>
+          <!-- Rendered from data/projects.json -->
+        </div>
+        <p id="assets-disclaimer" style="margin-top:var(--space-l);font-size:0.8rem;color:var(--ink-soft);max-width:none" data-reveal></p>
+      </div>
+    </section>
+
+    <!-- ================= Visualization ================= -->
+    <section class="band band--dark" aria-label="Rehabilitation visualizations">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">What rehabilitation looks like</p>
+          <h2>From boarded-up to back in business.</h2>
+        </div>
+        <div id="viz-sets">
+          <!-- Rendered from data/projects.json -->
+        </div>
+        <p class="viz-disclaimer" id="viz-disclaimer" data-reveal></p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal" id="asset-modal" role="dialog" aria-modal="true" aria-label="Asset detail">
+    <div class="modal__scrim"></div>
+    <div class="modal__panel">
+      <button class="modal__close" type="button" aria-label="Close detail">✕</button>
+      <div class="modal__content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <p id="footer-line"></p>
+        <p><span class="status-chip" data-status-chip></span></p>
+      </div>
+      <nav aria-label="Footer">
+        <h4 style="color:var(--cream)">Explore</h4>
+        <p><a href="index.html#story">The story</a><br>
+        <a href="map.html">District map</a><br>
+        <a href="pillars.html">The 4 Pillars</a><br>
+        <a href="business.html">Businesses &amp; partners</a><br>
+        <a href="buildings.html">Buildings &amp; tax credits</a><br>
+        <a href="events.html">Events</a><br>
+        <a href="artworks.html">Artworks</a><br>
+        <a href="committees.html">Committees</a><br>
+        <a href="gallery.html">Community gallery</a></p>
+      </nav>
+      <div id="footer-facts"></div>
+    </div>
+    <div class="container">
+      <p class="site-footer__disclaimer" id="footer-disclaimer"></p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="boot-notice">This concept site renders its content from editable data files and needs JavaScript enabled.</p>
+  </noscript>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "comment": "The 4 Main Street Pillars page. Content sourced from the LFCD committee presentation of July 23, 2026 (slides 3, 4, 12, 13, 15) and the LFCD Board of Directors organizational chart. Committee labels per the LFCD committee; Main Street America (MSA) four points shown alongside.",
+  "mission": "The Lake Forest Cultural District works to cultivate a vibrant, inclusive, and sustainable cultural corridor that increases the attendance, participation, and sales for cultural anchors and businesses with a desire and heart to uplift, support, retain, and attract cultural economy activities and programs in the City of New Orleans.",
+  "purpose": "Increase event attendance and sales in the region.",
+  "intro": "The LFCD committee organizes the district's work around four pillars, aligned with Main Street America's proven four-point approach. Each pillar is a working committee with its own sub-committees and outcomes, drawn from the objectives in the 2025 LFCD state application.",
+  "pillars": [
+    {
+      "lfcd": "Administration",
+      "msa": "Organization",
+      "msaFocus": "Build leadership and strong organizational capacity. Align partnerships to the district's mission and strategies. Source financial resources and manage committee budgets.",
+      "subCommittees": [
+        "Partnerships",
+        "Budget",
+        "Legislation"
+      ],
+      "outcome": "Align partnerships, strategy, and budget.",
+      "note": "The proposed governance structure below sits under this pillar."
+    },
+    {
+      "lfcd": "Assets",
+      "msa": "Design",
+      "msaFocus": "Handle data sharing and asset identification. Map the physical and capital resources that benefit community economic development as cultural anchors or vendors.",
+      "subCommittees": [
+        "Asset Mapping",
+        "Data Sharing"
+      ],
+      "outcome": "Identify resources; map cultural, community, and economic assets.",
+      "note": null
+    },
+    {
+      "lfcd": "Economic Development",
+      "msa": "Economic Vitality",
+      "msaFocus": "Develop programs and events. Improve business technical assistance and programming to increase growth through event attendance and sales.",
+      "subCommittees": [
+        "Programs",
+        "Events"
+      ],
+      "outcome": "Improve business growth initiatives for cultural asset growth.",
+      "note": "The Louisiana State Commercial Historic Tax Credit — the financial tool behind the district's building rehabilitation case — works under this pillar. See the Buildings page for the full program details."
+    },
+    {
+      "lfcd": "Marketing",
+      "msa": "Promotion",
+      "msaFocus": "Brand the district and lead public outreach. Create advertisements for print, online, and in-person engagement. Manage internal communications.",
+      "subCommittees": [
+        "Branding",
+        "Public Outreach"
+      ],
+      "outcome": "Create the logo, social media, ads, and outreach.",
+      "note": null
+    }
+  ],
+  "governance": {
+    "title": "Proposed governance: the Board of Directors",
+    "image": "assets/img/org-chart.jpg",
+    "alt": "Lake Forest Cultural District Board of Directors organizational chart: a President over Vice President, Secretary, Treasurer and two district-resident members, over nine members — four of whom are residents of the district representing Zones 1 through 4. Total board members: 13.",
+    "summary": "Total board members: 13. Officers — President, Vice President, Secretary, Treasurer (4). Members — 9, four of whom are residents of the Lake Forest Cultural District, representing Zones 1–4. (The draft bylaws, July 2026, provide for 7–9 at-large members.)",
+    "status": "Proposed structure under committee review — first of three votes in progress as of July 2026."
+  },
+  "download": {
+    "label": "Download the committee presentation (PDF)",
+    "file": "assets/docs/LFCD_Agenda_Presentation_CD_and_MSA_July_23_2026.pdf",
+    "description": "LFCD Agenda & Presentation on Cultural Districts and Main Street America — July 23, 2026 (2.6 MB)"
+  },
+  "source": "LFCD committee presentation (July 23, 2026), LFCD Board of Directors organizational chart, and the draft LFCD bylaws (July 2026). MSA four-point language from Main Street America.",
+  "getInvolved": "Non-board members are welcome to become committee members. Contact info@lakeforestculturaldistrict.org if you are interested in serving."
+}

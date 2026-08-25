@@ -46,7 +46,7 @@
   text-transform: uppercase;
   color: var(--gold);
 }
-.site-nav { display: flex; gap: clamp(0.25rem, 2vw, 1rem); }
+.site-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(0.1rem, 1vw, 0.5rem); }
 .site-nav a {
   position: relative;
   text-decoration: none;
@@ -643,4 +643,46 @@
   font-size: 0.78rem;
   line-height: 1.6;
   max-width: none;
+}
+
+/* ---------- 4 Pillars ---------- */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(26rem, 100%), 1fr));
+  gap: var(--space-m);
+}
+.pillar-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pillar-card__head h3 { font-size: var(--step-2); }
+.pillar-card__msa {
+  font-size: var(--step--1);
+  color: var(--gold-deep);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.pillar-card__focus { color: var(--ink-soft); font-size: var(--step--1); }
+.pillar-card__meta { display: flex; flex-direction: column; gap: 0.5rem; margin: 0; }
+.pillar-card__meta dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+.pillar-card__meta dd { margin: 0; font-size: var(--step--1); }
+.pillar-card__note {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--line);
+  padding-top: 0.6rem;
+  margin-top: auto;
 }

@@ -107,12 +107,11 @@ The site was architected so wiring a backend means **changing one file**:
 
 ## Source material
 
-Images and facts on the site were extracted from the documents in the repo root:
-the June 2026 board deck (`260604-Lake-Forest-Cultural-District.pdf`), the HTC plan
-(`2026 - LFCD - HTC PLAN.pdf`), parish assessor records (`2026 - LFCD - PROPERTIES.pdf`),
-rehabilitation visualizations (`LFCD - Visualization.pdf`), and the program project
-records (`Historic Tax Credits Program Projects.pdf`). The "Orlandia" advertisement in
-the history chapter is reproduced from the visualization deck.
+Images and facts on the site were extracted from the committee's reference documents
+(the June 2026 board deck, the HTC plan, parish assessor records, the rehabilitation
+visualizations, and the program project records). Those reference documents are kept in the
+maintainer's repository only and are **not** part of the hand-off package. The "Orlandia"
+advertisement in the history chapter is reproduced from the visualization deck.
 
 ## Pending content imports
 
@@ -135,5 +134,8 @@ pages stay fully editable at their own URLs.
    - `CNAME` record, host `www`, value `cname.vercel-dns.com`
 3. Vercel verifies the records and issues SSL automatically (allow up to an hour for DNS).
 
-**Hand-off package:** the repo itself is the package. A zip of everything needed to run the
-site: `git archive --format=zip -o lfcd-site.zip HEAD` — or GitHub → Code → Download ZIP.
+**Hand-off package:** run `bash handoff/build-handoff.sh` to produce
+`dist/LFCD-site-handoff.zip`. It copies only an allowlist (the pages, `css/`, `js/`, `data/`,
+`assets/`) plus the beginner-friendly guide in `handoff/README.md`, and it refuses to build if any
+reference or pitch document slips in. Don't hand over a zip of the whole repo (GitHub's
+"Download ZIP" or `git archive`): that includes the private reference documents in the repo root.
